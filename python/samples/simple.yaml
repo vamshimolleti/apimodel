@@ -1,0 +1,30 @@
+Widgets:
+    - name: Widget
+      path: /widgets/$widget
+      docs: Something that we sell    
+      
+    - name: Widglet
+      path: /widgets/$widget/widglets/$widglet
+      docs: A part of a Widget
+      
+    - name: PrimaryWidglet
+      path: /widgets/$widget/widglets/primary
+      docs: The most important Widglet in a widget
+      singleton: true
+    
+Gadgets:
+    - name: Gadget
+      path: /gadgets/$gadget
+      docs: Something even more expensive that we sell
+      deleteAll: true
+      
+    - name: GadgetID
+      path: /gadgets/id
+      docs: The main unique ID of a gadget, which is constant
+      singleton: true
+      readOnly: true
+
+    - name: PartNumber
+      path: /gadgets/$gadget/partnumbers/$partnumber
+      readOnly: true
+      docs: A part of a gadget that remains constant across time

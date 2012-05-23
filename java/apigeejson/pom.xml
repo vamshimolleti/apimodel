@@ -1,0 +1,56 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>main</artifactId>
+    <groupId>com.apigee.apimodel</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>..</relativePath>
+  </parent>
+  <artifactId>apigeejson</artifactId>
+  <name>apimodel-apigeejson</name>
+  <description>Tools and libraries for Apigee Console v2 JSON export</description>
+  <build>
+  </build>
+  <dependencies>
+    <dependency>
+      <groupId>com.apigee.apimodel</groupId>
+      <artifactId>common</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.apigee.apimodel</groupId>
+      <artifactId>common</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <scope>test</scope>
+      <type>test-jar</type>
+    </dependency>
+
+    <dependency>
+      <groupId>com.apigee.apimodel</groupId>
+      <artifactId>model</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    <!-- required for tests -->
+    <dependency>
+      <groupId>com.apigee.apimodel</groupId>
+      <artifactId>wadl</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>1.9.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-xc</artifactId>
+      <version>1.9.5</version>
+    </dependency>
+    <dependency>
+     <groupId>org.apache.commons</groupId>
+  <artifactId>commons-lang3</artifactId>
+  <version>3.1</version>
+    </dependency>
+  </dependencies>
+</project>

@@ -1,0 +1,41 @@
+<project name="api">
+  <path id="class.path">
+    <fileset dir="target/api-0.0.1-SNAPSHOT/WEB-INF/lib">
+       <include name="**/*.jar"/>
+    </fileset>
+    <pathelement path="target/api-0.0.1-SNAPSHOT/WEB-INF/classes"/>
+  </path>
+
+  <target name="validateschema">
+    <java classname="com.apigee.apimodel.jpa.DBUpdater"
+      classpathref="class.path">
+      <arg value="APIModel"/>
+      <arg value="validate"/>
+      <arg value="src/test/resources/stage.properties"/>
+    </java>
+  </target>
+  <target name="createschema">
+    <java classname="com.apigee.apimodel.jpa.DBUpdater"
+      classpathref="class.path">
+      <arg value="APIModel"/>
+      <arg value="create"/>
+      <arg value="src/test/resources/stage.properties"/>
+    </java>
+  </target>
+  <target name="recreateschema">
+    <java classname="com.apigee.apimodel.jpa.DBUpdater"
+      classpathref="class.path">
+      <arg value="APIModel"/>
+      <arg value="create-drop"/>
+      <arg value="src/test/resources/stage.properties"/>
+    </java>
+  </target>
+  <target name="updateschema">
+    <java classname="com.apigee.apimodel.jpa.DBUpdater"
+      classpathref="class.path">
+      <arg value="APIModel"/>
+      <arg value="update"/>
+      <arg value="src/test/resources/stage.properties"/>
+    </java>
+  </target>
+</project>

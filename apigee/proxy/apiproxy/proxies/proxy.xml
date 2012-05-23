@@ -1,0 +1,35 @@
+<ProxyEndpoint name="proxy">
+  <PreFlow>
+    <Request>
+      <Step><Name>RateLimitByIP</Name></Step>
+    </Request>
+  </PreFlow>
+  <Flows>
+    <Flow name="user">
+      <Condition>request.queryparam.apikey != null</Condition>
+      <Request>
+        <Step><Name>ValidateKey</Name></Step>
+      </Request>
+    </Flow>
+    <Flow name="default">
+      <Request>
+        <Step>
+          <Condition>request.verb != "GET"</Condition>
+          <Name>RejectUnauthorized</Name>
+        </Step>
+      </Request>
+    </Flow>
+  </Flows>
+  <PostFlow>
+    <Response>
+      <Step><Name>Analytics</Name></Step>
+    </Response>
+  </PostFlow>
+  <HTTPProxyConnection>
+    <BasePath>/</BasePath>
+    <VirtualHost>default</VirtualHost>
+  </HTTPProxyConnection>
+  <RouteRule name="default">
+    <TargetEndpoint>apihub</TargetEndpoint>
+  </RouteRule>
+</ProxyEndpoint>

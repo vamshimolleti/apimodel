@@ -1,0 +1,12 @@
+GET /organizations							controllers.Organizations.getAll()
+POST /organizations							controllers.Organizations.create(format, name)
+GET /o							            controllers.Organizations.getAll()
+POST /o										controllers.Organizations.create(format, name)
+
+GET /organizations/:org						controllers.Organizations.get(org)
+GET /o/:org						            controllers.Organizations.get(org)
+DELETE /organizations/:org					controllers.Organizations.delete(org)
+DELETE /o/:org						        controllers.Organizations.delete(org)
+
+*											controllers.Default.notFound()
+

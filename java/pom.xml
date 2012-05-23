@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This is just in my branch -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.apigee.apimodel</groupId>
+  <artifactId>main</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <name>API Model</name>
+  <description>The top-level API modelling project</description>
+  <modules>
+    <module>common</module>
+    <module>api</module>
+    <module>apitext</module>
+    <module>jpa</module>
+    <module>model</module>
+    <module>processor</module>
+    <module>servlet</module>
+    <module>tools</module>
+    <module>wadl</module>
+    <module>swagger</module>
+    <module>iodocs</module>
+    <module>console</module>
+    <module>apigeejson</module>
+  </modules>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>2.12</version>
+        <executions>
+          <execution>
+            <id>integration-test</id>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+           </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

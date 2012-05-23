@@ -1,0 +1,10 @@
+<RaiseFault name="RejectUnauthorized">
+  <FaultResponse>
+    <Set>
+      <Payload contentType="text/plain">
+      </Payload>
+      <StatusCode>403</StatusCode>
+      <ReasonPhrase>Forbidden</ReasonPhrase>
+    </Set>
+  </FaultResponse>
+</RaiseFault>

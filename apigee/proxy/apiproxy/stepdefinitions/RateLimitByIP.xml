@@ -1,0 +1,4 @@
+<SpikeArrest name="RateLimitByIP">
+  <Rate>1000ps</Rate>
+  <Identifier ref="client.ip"/>
+</SpikeArrest>

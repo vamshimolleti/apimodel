@@ -1,0 +1,3 @@
+<GetOAuthV2Info name="ValidateKey">
+  <ClientId ref="request.queryparam.apikey"/>
+</GetOAuthV2Info>

@@ -1,0 +1,59 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>main</artifactId>
+    <groupId>com.apigee.apimodel</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>..</relativePath>
+  </parent>
+  <artifactId>swagger</artifactId>
+  <name>apimodel-swagger</name>
+  <description>Tools and libraries for Swagger import and export</description>
+  <build>
+  </build>
+  <dependencies>
+    <dependency>
+      <groupId>com.apigee.apimodel</groupId>
+      <artifactId>common</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.apigee.apimodel</groupId>
+      <artifactId>common</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <scope>test</scope>
+      <type>test-jar</type>
+    </dependency>
+
+    <dependency>
+      <groupId>com.apigee.apimodel</groupId>
+      <artifactId>model</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+
+    <!-- custom snapshot build because the ones in main maven repo have broken json (de)serialization -->
+    <dependency>
+      <groupId>com.wordnik</groupId>
+      <artifactId>swagger-core_2.9.1</artifactId>
+      <version>1.02-SNAPSHOT</version>
+      <scope>system</scope>
+      <systemPath>${project.basedir}/lib/swagger-core_2.9.1-1.02-SNAPSHOT.jar</systemPath>
+    </dependency>
+    <!-- swagger-core depends on this -->
+    <dependency>
+      <groupId>org.scala-lang</groupId>
+      <artifactId>scala-library</artifactId>
+      <version>2.9.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-mapper-asl</artifactId>
+      <version>1.9.5</version>
+    </dependency>
+    <dependency>
+      <groupId>org.codehaus.jackson</groupId>
+      <artifactId>jackson-xc</artifactId>
+      <version>1.9.5</version>
+    </dependency>
+  </dependencies>
+</project>

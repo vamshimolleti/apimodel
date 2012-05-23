@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<VirtualHost name="default">
+    <HostAliases>
+        <HostAlias>apigee-apihub-test.apigee.net</HostAlias>
+        <HostAlias>apihub.apigeng.com</HostAlias>
+    </HostAliases>
+    <Interfaces/>
+    <Port>80</Port>
+</VirtualHost>

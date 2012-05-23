@@ -1,0 +1,2953 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<application xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:apigee="http://api.apigee.com/wadl/2010/07/" xmlns="http://wadl.dev.java.net/2009/02" xmlns:t="urn:github:githubresponse" xsi:schemaLocation="http://wadl.dev.java.net/2009/02 http://apigee.com/schemas/wadl-schema.xsd http://api.apigee.com/wadl/2010/07/ http://apigee.com/schemas/apigee-wadl-extensions.xsd">
+
+	<resources base="https://api.github.com">
+	
+		<resource path="/repos?page={num}&amp;per_page={perPage}">
+			<param name="num" required="true" type="xsd:int" style="query" default="30"/>
+			<param name="perPage" required="true" type="xsd:int" style="query" default="100"/>
+			<method id="GetPagination" apigee:displayName="GetPagination" name="GET">
+				<apigee:tags>
+					<apigee:tag>Pagination</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="/repos?page={num}&amp;per_page={perPage}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Return multiple items will be paginated with the page parameter and set a custom page size up to 100 with the per_page parameter.
+				</doc>
+			</method>
+		</resource>
+						
+		<resource path="/issues">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<method id="ListIssues" apigee:displayName="ListIssues" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Issues</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/issues"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/">
+					List your issues.
+				</doc>
+			<request>
+				<param name="filter" required="false" type="string" style="query" default="assigned"/>
+				<param name="state" required="false" type="string" style="query" default=""/>
+				<param name="sort" required="false" type="string" style="query" default="created"/>
+				<param name="direction" required="false" type="string" style="query" default="desc"/>
+			</request>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/issues">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<method id="GetIssues" apigee:displayName="GetIssues" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Issues</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/issues"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/">
+					List issues for this Repository.
+				</doc>
+			<request>
+				<param name="state" required="false" type="string" style="query" default=""/>
+				<param name="sort" required="false" type="string" style="query" default="created"/>
+				<param name="direction" required="false" type="string" style="query" default="desc"/>
+			</request>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/issues">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<method id="CreateIssue" apigee:displayName="CreateIssue" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Issues</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/issues"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/">
+					Create an Issue.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+					{
+  "title": "Found a bug",
+  "body": "I'm having a problem with this.",
+  "assignee": "octocat",
+  "milestone": 1,
+  "labels": [
+    "Label1",
+    "Label2"
+  ]
+}
+				
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/issues/{id}">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="GetIssue" apigee:displayName="GetIssue" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Issues</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/issues/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/">
+					Returns a single Issue.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/issues/{id}">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="UpdateIssue" apigee:displayName="UpdateIssue" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Issues</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/issues/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/">
+					Edit an Issue.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+				{
+  "title": "Found a bug",
+  "body": "I'm having a problem with this.",
+  "assignee": "octocat",
+  "milestone": 1,
+  "state": "open",
+  "labels": [
+    "Label1",
+    "Label2"
+  ]
+}
+			
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/issues/{id}/comments">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="GetIssueComments" apigee:displayName="GetIssueComments" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Issue Comments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/issues/{id}/comments"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/comments/">
+					Returns comments for an Issue.
+				</doc>
+			</method>
+		</resource>
+				
+		<resource path="/repos/{userName}/{repoName}/issues/{id}/comments">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="CreateIssueComment" apigee:displayName="CreateIssueComment" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Issue Comments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/issues/{id}/comments"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/comments/">
+					Create a comment for an Issue.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+						{
+  "body": "a new comment"
+}
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/issues/comments/{id}">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="GetIssueComment" apigee:displayName="GetIssueComment" name="GET">	
+				<apigee:tags>
+					<apigee:tag primary="true">Issue Comments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/issues/comments/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/comments/">
+					Returns a single Issue Comment.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/issues/comments/{id}">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="UpdateIssueComment" apigee:displayName="UpdateIssueComment" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Issue Comments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/issues/comments/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/comments/">
+					Edit an Issue Comment.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+						{"body" : "String"}	
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/issues/comments/{id}">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="DeleteIssueComment" apigee:displayName="DeleteIssueComment" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Issue Comments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/issues/comments/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/comments/">
+					Delete an Issue Comment.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/labels">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<method id="GetLabels" apigee:displayName="GetLabels" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Labels</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/labels"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/labels/">
+					Returns a list all Labels for this Repository.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/labels">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<method id="CreateLabel" apigee:displayName="CreateLabel" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Labels</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/labels"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/labels/">
+					Create a Label.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+						{"name" : "String", "color" : "hex"}
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/labels/{id}">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="GetLabel" apigee:displayName="GetLabel" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Labels</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/labels/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/labels/">
+					Returns a single Label.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/labels/{id}">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="UpdateLabel" apigee:displayName="UpdateLabel" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Labels</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/labels/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/labels/">
+					Update a Label.
+				</doc>
+				<request>
+				<representation>
+					<apigee:payload><![CDATA[
+						{"name" : "String", "color" : "hex"}
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/labels/{id}">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="DeleteLabel" apigee:displayName="DeleteLabel" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Labels</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/labels/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/labels/">
+					Delete a label.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/issues/{id}/labels">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="GetIssueLabels" apigee:displayName="GetIssueLabels" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Labels</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/issues/{id}/labels"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/labels/">
+					List labels on the Issue.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/issues/{id}/labels">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="CreateIssueLabels" apigee:displayName="CreateIssueLabels" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Labels</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/issues/{id}/labels"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/labels/">
+					Add Labels to an Issue.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+						["Label1", "Label2"]
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/issues/{id}/labels/{id}">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="DeleteIssueLabel" apigee:displayName="DeleteIssueLabel" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Labels</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/issues/{id}/labels/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/labels/">
+					Remove a Label from an Issue.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/issues/{id}/labels">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="UpdateIssueLabels" apigee:displayName="UpdateIssueLabels" name="PUT">
+				<apigee:tags>
+					<apigee:tag primary="true">Labels</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/issues/{id}/labels"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/labels/">
+					Replace all Labels for an Issue.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+						["Label1", "Label2"]
+					]]></apigee:payload>
+				</representation>
+			</request>	
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/issues/{id}/labels">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="DeleteIssueLabels" apigee:displayName="DeleteIssueLabels" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Labels</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/issues/{id}/labels"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/labels/">
+					Remove all Labels from an Issue.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/milestones/{id}/labels">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="GetMilestoneIssueLabels" apigee:displayName="GetMilestoneIssueLabels" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Labels</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/milestones/{id}/labels"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/labels/">
+					Returns Labels for every Issue in a Milestone.
+				</doc>	
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/milestones">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<method id="GetMilestones" apigee:displayName="GetMilestones" name="GET">
+			<apigee:tags>
+					<apigee:tag primary="true">Milestones</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/milestones"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/milestones/">
+					List Milestones for an Issue.
+				</doc>
+			<request>
+				<param name="state" required="false" type="string" style="query" default="open"/>
+				<param name="sort" required="false" type="string" style="query" default="created"/>
+				<param name="direction" required="false" type="string" style="query" default="desc"/>
+			</request>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/milestones">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<method id="CreateMilestone" apigee:displayName="CreateMilestone" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Milestones</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/milestones"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/milestones/">
+					Create a Milestone.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+						{"title" : "String",
+						"state" : "open or closed",
+						"description" : "String",
+						"due_on" : "Time"}
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/milestones/{id}">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="GetMilestone" apigee:displayName="GetMilestone" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Milestones</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/milestones/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/milestones/">
+					Returns a single Milestone.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/milestones/{id}">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="UpdateMilestone" apigee:displayName="UpdateMilestone" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Milestones</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/milestones/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/milestones/">
+					Update a Milestone.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+						{"title" : "String",
+							"state" : "open",
+							"description" : "String",
+							"due_on" : "Time"}
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/milestones/{id}">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="DeleteMilestone" apigee:displayName="DeleteMilestone" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Milestones</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/milestones/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/milestones/">
+					Delete a Milestone.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/issues/{issueId}/events">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<param name="issueId" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="GetIssueEvents" apigee:displayName="GetIssueEvents" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Issue Events</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/issues/{issueId}/events"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/events/">
+					Returns Events for an Issue.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/issues/events">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<method id="GetRepoEvents" apigee:displayName="GetRepoEvents" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Issue Events</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/issues/events"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/events/">
+					Returns Events for a Repository.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/issues/events/{id}">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<param name="reponame" required="true" type="xsd:string" style="query" default="Hello-World"/>
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="GetIssueEvent" apigee:displayName="GetIssueEvent" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Issue Events</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/issues/events/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/issues/events/">
+					Returns a single Issue Event.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/users/{userName}/gists">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<method id="ListUserGist" apigee:displayName="ListUserGist" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Gists</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="/users/{userName}/gists"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/gists/">
+					List a user's gists
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/gists">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<method id="ListAuthUserGist" apigee:displayName="ListAuthUserGist" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Gists</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/gists"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/gists/">
+					List the authenticated user’s gists or if called anonymously, this will returns all public gists.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/gists/public">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<method id="ListPublicGist" apigee:displayName="ListPublicGist" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Gists</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/gists/public"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/gists/">
+					List all public gists.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/gists/starred">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<method id="ListStarredGist" apigee:displayName="ListStarredGist" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Gists</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/gists/starred"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/gists/">
+					List the authenticated user’s starred gists.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/gists/{id}">
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="GetGist" apigee:displayName="GetGist" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Gists</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/gists/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/gists/">
+					Get a single gist.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/users/{userName}/gists">
+			<param name="username" required="true" type="xsd:string" style="query" default="octocat"/>
+			<method id="CreateGist" apigee:displayName="CreateGist" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Gists</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/users/{userName}/gists"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/gists/">
+					Create a new gist.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+						{
+  "description": "the description for this gist",
+  "public": true,
+  "files": {
+    "file1.txt": {
+      "content": "String file contents"
+    }
+  }
+}
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>
+		
+		<resource path="/gists/{id}">
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="UpdateGist" apigee:displayName="UpdateGist" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Gists</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/gists/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/gists/">
+					Edit a gist.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+						{
+  "description": "the description for this gist",
+  "files": {
+    "file1.txt": {
+      "content": "updated file contents"
+    },
+    "old_name.txt": {
+      "filename": "new_name.txt",
+      "content": "modified contents"
+    },
+    "new_file.txt": {
+      "content": "a new file"
+    },
+    "delete_this_file.txt": null
+  }
+}
+
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>
+		
+		<resource path="/gists/{id}/star">
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="StarGist" apigee:displayName="StarGist" name="PUT">
+				<apigee:tags>
+					<apigee:tag primary="true">Gists</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/gists/{id}/star"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/gists/">
+					Star a gist.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/gists/{id}/star">
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="UnStarGist" apigee:displayName="UnStarGist" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Gists</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/gists/{id}/star"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/gists/">
+					Unstar a gist.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/gists/{id}/star">
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="CheckGistStarred" apigee:displayName="CheckGistStarred" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Gists</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/gists/{id}/star"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/gists/">
+					Check if a gist is starred.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/gists/{id}/fork">
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="ForkGist" apigee:displayName="ForkGist" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Gists</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/gists/{id}/fork"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/gists/">
+					Fork a gist.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/gists/{id}">
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="DeleteGist" apigee:displayName="DeleteGist" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Gists</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/gists/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/gists/">
+					Delete a gist.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/gists/{gistId}/comments">
+			<param name="gistId" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="GetGistComments" apigee:displayName="GetGistComments" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Gist Comments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/gists/{gistId}/comments"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/gists/comments/">
+					List Gist Comments.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/gists/comments/{id}">
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="GetGistComment" apigee:displayName="GetGistComment" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Gist Comments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/gists/comments/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/gists/comments/">
+					Returns a Gist Comment.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/gists/{gistId}/comments">
+			<param name="gistId" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="CreateGistComment" apigee:displayName="CreateGistComment" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Gist Comments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/gists/{gistId}/comments"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/gists/comments/">
+					Create a Gist Comment
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+					{	
+						"body" : "String"
+					}				
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>
+		
+		<resource path="/gists/comments/{id}">
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="UpdateGistComment" apigee:displayName="UpdateGistComment" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Gist Comments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/gists/comments/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/gists/comments/">
+					Edit a Gist Comment.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+					{	
+						"body" : "String"
+					}				
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>
+		
+		<resource path="/gists/comments/{id}">
+			<param name="id" required="true" type="xsd:int" style="query" default="1"/>
+			<method id="DeleteGistComment" apigee:displayName="DeleteGistComment" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Gist Comments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/gists/comments/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/gists/comments/">
+					Delete a Gist Comment.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/user">
+			<method id="GetAuthUser" apigee:displayName="GetAuthUser" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">User</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Get the authenticated user.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/users/{userName}">
+		 <param name="userName" required="true" type="xsd:string" style="query" default="octocat"/>
+			<method id="GetUser" apigee:displayName="GetUser" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">User</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/users/{userName}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Get a single user.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/user">
+			<method id="UpdateUser" apigee:displayName="UpdateUser" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">User</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Update the authenticated user.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+				{
+					"name": "monalisa octocat",
+					"email": "octocat@github.com",
+				    "blog": "https://github.com/blog",
+					"company": "GitHub",
+					"location": "San Francisco",
+				   "hireable": true,
+					"bio": "There once..."
+				}				
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>
+		
+		<resource path="/user/emails">
+			<method id="ListUserEmail" apigee:displayName="ListUserEmail" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">User Emails</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user/emails"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					List email addresses for a user.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/user/emails">
+			<method id="AddEmailAddresses" apigee:displayName="AddEmailAddresses" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">User Emails</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user/emails"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Add email address(es).
+				</doc>
+			   <request>
+				<representation>
+					<apigee:payload><![CDATA[
+				[
+					"octocat@github.com",
+					"support@github.com"
+				]			
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>
+		
+		<resource path="/user/emails">
+			<method id="DeleteEmailAddresses" apigee:displayName="DeleteEmailAddresses" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">User Emails</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user/emails"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Delete email address(es).
+				</doc>
+				 <request>
+				<representation>
+					<apigee:payload><![CDATA[
+				[
+					"octocat@github.com",
+					"support@github.com"
+				]			
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>
+		
+	   <resource path="/users/{userName}/followers">
+	   <param name="userName" required="true" type="xsd:string" style="query" default="octocat"/>
+			<method id="ListUserFollower" apigee:displayName="ListUserFollower" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">User Followers</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="/users/{userName}/followers"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					List a user's followers.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/user/followers">
+	   <param name="userName" required="true" type="xsd:string" style="query" default="octocat"/>
+			<method id="ListAuthUserFollower" apigee:displayName="ListAuthUserFollower" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">User Followers</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user/followers"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					List the authenticated user's followers.
+				</doc>
+			</method>
+		</resource>
+		
+	  <resource path="/users/{userName}/following">
+	   <param name="userName" required="true" type="xsd:string" style="query" default="octocat"/>
+			<method id="ListUserFollowing" apigee:displayName="ListUserFollowing" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">User Followers</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="false"/>
+				<apigee:example url="/users/{userName}/following"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					List who a user is following.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/user/following">
+			<method id="ListAuthUserFollowing" apigee:displayName="ListAuthUserFollowing" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">User Followers</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user/following"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					List who the authenicated user is following.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/user/following/{userName}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default="octocat"/>
+			<method id="FollowUser" apigee:displayName="FollowUser" name="PUT">
+				<apigee:tags>
+					<apigee:tag primary="true">User Followers</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user/following/{userName}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Follow a user.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/user/following/{userName}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default="octocat"/>
+			<method id="UnFollowUser" apigee:displayName="UnFollowUser" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">User Followers</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user/following/{userName}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Unfollow a user.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/user/following/{userName}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default="octocat"/>
+			<method id="GetFollowingUser" apigee:displayName="GetFollowingUser" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">User Followers</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user/following/{userName}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Check if you are following a user.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/user/keys">
+	   <param name="userName" required="true" type="xsd:string" style="query" default="octocat"/>
+			<method id="ListPublicKeys" apigee:displayName="ListPublicKeys" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">User Public Keys</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user/keys"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					List public keys for a user.
+				</doc>
+			</method>
+		</resource>
+		
+		<resource path="/user/keys/{id}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default="octocat"/>
+			<method id="GetPublicKey" apigee:displayName="GetPublicKey" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">User Public Keys</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user/keys/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Get a single public key.
+				</doc>
+			</method>
+		</resource>
+		
+	   <resource path="/user/keys">
+	   <param name="userName" required="true" type="xsd:string" style="query" default="octocat"/>
+			<method id="CreatePublicKey" apigee:displayName="CreatePublicKey" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">User Public Keys</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user/keys"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Create a public key.
+				</doc>
+				 <request>
+				<representation>
+					<apigee:payload><![CDATA[
+				{
+					"title": "octocat@octomac",
+					"key": "ssh-rsa AAA..."
+				}		
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>
+		
+		<resource path="/user/keys/{id}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default="octocat"/>
+			<method id="UpdatePublicKey" apigee:displayName="UpdatePublicKey" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">User Public Keys</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user/keys/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Update a public key.
+				</doc>
+				 <request>
+				<representation>
+					<apigee:payload><![CDATA[
+				{
+					"title": "octocat@octomac",
+					"key": "ssh-rsa AAA..."
+				}		
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>
+		
+	<resource path="/user/keys/{id}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default="octocat"/>
+			<method id="DeletePublicKey" apigee:displayName="DeletePublicKey" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">User Public Keys</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user/keys/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Delete a public key.
+				</doc>
+			</method>
+		</resource>
+		
+	<resource path="/repos/{userName}/{repoName}/git/blobs/{sha}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="GetBlob" apigee:displayName="GetBlob" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Git Data</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/git/blobs/{sha}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Get a Blob.
+				</doc>
+			</method>
+		</resource>	
+		
+	<resource path="/repos/{userName}/{repoName}/git/blobs">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="CreateBlob" apigee:displayName="CreateBlob" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Git Data</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/git/blobs"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Create a Blob.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+				{
+  "content": "Content of the blob",
+  "encoding": "utf-8"
+}
+		
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>	
+
+	<resource path="/repos/{userName}/{repoName}/git/commits/{sha}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="GetCommit" apigee:displayName="GetCommit" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Git Data</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/git/commits/{sha}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Get a Commit.
+				</doc>
+			</method>
+		</resource>	
+
+	<resource path="/repos/{userName}/{repoName}/git/commits">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="CreateCommit" apigee:displayName="CreateCommit" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Git Data</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/git/commits"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Create a Commit.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "message": "my commit message",
+  "author": {
+    "name": "Scott Chacon",
+    "email": "schacon@gmail.com",
+    "date": "2008-07-09T16:13:30+12:00"
+  },
+  "parents": [
+    "7d1b31e74ee336d15cbd21741bc88a537ed063a0"
+  ],
+  "tree": "827efc6d56897b048c772eb4087f854f46256132"
+}
+
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>	
+
+	<resource path="/repos/{userName}/{repoName}/git/refs/{ref}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="GetReference" apigee:displayName="GetReference" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Git Data</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/git/refs/{ref}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Get a Reference.
+				</doc>
+			</method>
+		</resource>		
+		
+	<resource path="/repos/{userName}/{repoName}/git/refs">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="GetReferences" apigee:displayName="GetReferences" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Git Data</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/git/refs"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Get all References.
+				</doc>
+			</method>
+		</resource>	
+
+	<resource path="/repos/{userName}/{repoName}/git/refs/tags">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="GetTagReferences" apigee:displayName="GetTagReferences" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Git Data</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/git/refs/tags"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Get all the tag references.
+				</doc>
+			</method>
+		</resource>		
+
+	<resource path="/repos/{userName}/{repoName}/git/refs">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="CreateReference" apigee:displayName="CreateReference" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Git Data</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/git/refs"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Create a Reference.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "ref": "refs/heads/master",
+  "sha": "827efc6d56897b048c772eb4087f854f46256132"
+}
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>	
+
+	<resource path="/repos/{userName}/{repoName}/git/refs/{ref}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="UpdateReference" apigee:displayName="UpdateReference" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Git Data</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/git/refs/{ref}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Update a Reference.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "sha": "aa218f56b14c9653891f9e74264a383fa43fefbd",
+  "force": true
+}
+
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>	
+
+	<resource path="/repos/{userName}/{repoName}/git/tags/{sha}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="GetTag" apigee:displayName="GetTag" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Git Data</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/git/tags/{sha}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Get a Tag.
+				</doc>
+			</method>
+		</resource>	
+
+	<resource path="/repos/{userName}/{repoName}/git/tags">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="CreateTagObject" apigee:displayName="CreateTagObject" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Git Data</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/git/tags"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Create a Tag Object.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "tag": "v0.0.1",
+  "sha": "940bd336248efae0f9ee5bc7b2d5c985887b16ac",
+  "message": "initial version",
+  "object": "commit"
+}
+
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>	
+
+	<resource path="/repos/{userName}/{repoName}/git/trees/{sha}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="GetTree" apigee:displayName="GetTree" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Git Data</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/git/trees/{sha}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Get a Tree.
+				</doc>
+			</method>
+		</resource>	
+
+	<resource path="/repos/{userName}/{repoName}/git/trees/{sha}?recursive=1">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="GetTreeRecursively" apigee:displayName="GetTreeRecursively" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Git Data</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/git/trees/{sha}?recursive=1"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Get a Tree Recursively.
+				</doc>
+			</method>
+		</resource>	
+
+	<resource path="/repos/{userName}/{repoName}/git/trees">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="CreateTree" apigee:displayName="CreateTree" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Git Data</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/git/trees"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Create a Tree.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "tree": [
+    {
+      "path": "file.rb",
+      "mode": "100644",
+      "type": "blob",
+      "sha": "44b4fc6d56897b048c772eb4087f854f46256132"
+    }
+  ]
+}
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>	
+
+	<resource path="/users/{userName}/orgs">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="ListOrg" apigee:displayName="ListOrg" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Organizations</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/users/{userName}/orgs"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					List all public organizations for a user.
+				</doc>
+			</method>
+		</resource>		
+		
+	<resource path="/user/orgs">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="ListAuthUserOrg" apigee:displayName="ListAuthUserOrg" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Organizations</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user/orgs"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					List public and private organizations for the authenticated user.
+				</doc>
+			</method>
+		</resource>			
+		
+	<resource path="/orgs/{org}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="GetOrg" apigee:displayName="GetOrg" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Organizations</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/orgs/{org}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Retrieves an Organization.
+				</doc>
+			</method>
+		</resource>	
+
+	<resource path="/orgs/{org}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="UpdateOrg" apigee:displayName="UpdateOrg" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Organizations</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/orgs/{org}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Edit an Organization.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "billing_email": "support@github.com",
+  "blog": "https://github.com/blog",
+  "company": "GitHub",
+  "email": "support@github.com",
+  "location": "San Francisco",
+  "name": "github"
+}
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>		
+	
+	
+	<resource path="/orgs/{org}/members">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="ListMembers" apigee:displayName="ListMembers" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Organization Members</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/orgs/{org}/members"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					List all users who are members of an organization.
+				</doc>
+			</method>
+		</resource>
+	
+	<resource path="/orgs/{org}/members/{userName}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="GetMember" apigee:displayName="GetMember" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Organization Members</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/orgs/{org}/members/{userName}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Get member.
+				</doc>
+			</method>
+		</resource>
+		
+	<resource path="/teams/{id}/members/{user}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="CreateMember" apigee:displayName="CreateMember" name="PUT">
+				<apigee:tags>
+					<apigee:tag primary="true">Organization Members</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/teams/{id}/members/{user}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Add a member.
+				</doc>
+			</method>
+		</resource>	
+		
+	<resource path="/orgs/{org}/members/{userName}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="DeleteMember" apigee:displayName="DeleteMember" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Organization Members</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/teams/{id}/members/{user}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Remove a member.
+				</doc>
+			</method>
+		</resource>	
+
+	<resource path="/orgs/{org}/public_members">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="ListPublicMembers" apigee:displayName="ListPublicMembers" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Organization Members</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/orgs/{org}/public_members"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					List public members.
+				</doc>
+			</method>
+		</resource>	
+
+	<resource path="/orgs/{org}/public_members/{userName}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="GetUserPublicMember" apigee:displayName="GetUserPublicMember" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Organization Members</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/orgs/{org}/public_members/{userName}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Get if a user is a public member.
+				</doc>
+			</method>
+		</resource>
+
+	<resource path="/orgs/{org}/public_members/{userName}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="PublicizeUserMembership" apigee:displayName="PublicizeUserMembership" name="PUT">
+				<apigee:tags>
+					<apigee:tag primary="true">Organization Members</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/orgs/{org}/public_members/{userName}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Publicize a user’s membership
+				</doc>
+			</method>
+		</resource>	
+		
+	<resource path="/orgs/{org}/public_members/{userName}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="ConcealUserMembership" apigee:displayName="ConcealUserMembership" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Organization Members</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/orgs/{org}/public_members/{userName}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Conceal a user’s membership
+				</doc>
+			</method>
+		</resource>	
+
+	<resource path="/orgs/{org}/teams">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="ListOrgTeams" apigee:displayName="ListOrgTeams" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Organization Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/orgs/{org}/teams"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					List teams.
+				</doc>
+			</method>
+		</resource>	
+
+	<resource path="/teams/{id}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="GetTeam" apigee:displayName="GetTeam" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Organization Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/teams/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Get team.
+				</doc>
+			</method>
+		</resource>	
+
+	<resource path="/orgs/{org}/teams">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="CreateTeam" apigee:displayName="CreateTeam" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Organization Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/orgs/{org}/teams"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Create team.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "name": "new team",
+  "permission": "push",
+  "repo_names": [
+    "github/dotfiles"
+  ]
+}
+
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>		
+		
+	<resource path="/teams/{id}">
+	   <param name="userName" required="true" type="xsd:string" style="query" default=""/>
+			<method id="UpdateTeam" apigee:displayName="UpdateTeam" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Organization Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/teams/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Edit team.
+				</doc>
+			<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "name": "new team name",
+  "permission": "push"
+}
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>	
+
+	<resource path="/teams/{id}">
+			<method id="DeleteTeam" apigee:displayName="DeleteTeam" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Organization Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/teams/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Delete team.
+				</doc>
+			</method>
+		</resource>	
+		
+	<resource path="/teams/{id}/members">
+			<method id="ListTeamMembers" apigee:displayName="ListTeamMembers" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Organization Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/teams/{id}/members"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					List team members.
+				</doc>
+			</method>
+		</resource>		
+
+	<resource path="/teams/{id}/members/{userName}">
+			<method id="GetTeamMember" apigee:displayName="GetTeamMember" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Organization Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/teams/{id}/members/{userName}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Get team member.
+				</doc>
+			</method>
+		</resource>	
+
+		<resource path="/teams/{id}/members/{userName}">
+			<method id="CreateTeamMember" apigee:displayName="CreateTeamMember" name="PUT">
+				<apigee:tags>
+					<apigee:tag primary="true">Organization Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/teams/{id}/members/{userName}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Add team member.
+				</doc>
+			</method>
+		</resource>	
+
+		<resource path="/teams/{id}/members/{userName}">
+			<method id="DeleteTeamMember" apigee:displayName="DeleteTeamMember" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Organization Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/teams/{id}/members/{userName}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Remove team member.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/teams/{id}/repos">
+			<method id="ListTeamRepos" apigee:displayName="ListTeamRepos" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Organization Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/teams/{id}/repos"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					List team repos.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/teams/{id}/repos/{userName}/{repoName}">
+			<method id="GetTeamRepo" apigee:displayName="GetTeamRepo" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Organization Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/teams/{id}/repos/{userName}/{repoName}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Get team repo.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/teams/{id}/repos/{userName}/{repoName}">
+			<method id="CreateTeamRepo" apigee:displayName="CreateTeamRepo" name="PUT">
+				<apigee:tags>
+					<apigee:tag primary="true">Organization Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/teams/{id}/repos/{userName}/{repoName}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Add team repo.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/teams/{id}/repos/{userName}/{repoName}">
+			<method id="DeleteTeamRepo" apigee:displayName="DeleteTeamRepo" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Organization Teams</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/teams/{id}/repos/{userName}/{repoName}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Remove team repo.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="/repos/{userName}/{repoName}/pulls">
+			<method id="GetPullRequests" apigee:displayName="GetPullRequests" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Pull Requests</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/pulls"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					List pull requests.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="/repos/{userName}/{repoName}/pulls/{id}">
+			<method id="GetPullRequest" apigee:displayName="GetPullRequest" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Pull Requests</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/pulls/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Get a single pull request.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/pulls">
+			<method id="CreatePullRequest" apigee:displayName="CreatePullRequest" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Pull Requests</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/pulls"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Create a pull request.
+				</doc>
+				<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "title": "Amazing new feature",
+  "body": "Please pull this in!",
+  "head": "octocat:new-feature",
+  "base": "master"
+}
+
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/pulls/{id}">
+			<method id="UpdatePullRequest" apigee:displayName="UpdatePullRequest" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Pull Requests</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/pulls/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Update a pull request.
+				</doc>
+				<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "title": "new title",
+  "body": "updated body",
+  "state": "open"
+}
+
+
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/pulls/{id}/commits">
+			<method id="ListPullRequestCommits" apigee:displayName="ListPullRequestCommits" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Pull Requests</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/pulls/{id}/commits"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					List commits on a pull request.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/pulls/{id}/files">
+			<method id="ListPullRequestFiles" apigee:displayName="ListPullRequestFiles" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Pull Requests</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/pulls/{id}/files"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					List pull requests files.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/pulls/{id}/merge">
+			<method id="GetPullRequestMerged" apigee:displayName="GetPullRequestMerged" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Pull Requests</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/pulls/{id}/merge"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Get if a pull request has been merged.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/pulls/{id}/merge">
+			<method id="MergePullRequest" apigee:displayName="MergePullRequest" name="PUT">
+				<apigee:tags>
+					<apigee:tag primary="true">Pull Requests</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/pulls/{id}/merge"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Merge a pull request.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/pulls/{id}/comments">
+			<method id="ListPullRequestComment" apigee:displayName="ListPullRequestComment" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Pull Requests Review Comments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/pulls/{id}/comments"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					List comments on a pull request.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/pulls/{id}">
+			<method id="GetPullRequestComment" apigee:displayName="GetPullRequestComment" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Pull Requests Review Comments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/pulls/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/orgs/">
+					Get a single comment.
+				</doc>
+			</method>
+		</resource>	
+				
+	<resource path="/repos/{userName}/{repoName}/pulls/{id}/comments">
+			<method id="CreatePullRequestComment" apigee:displayName="CreatePullRequestComment" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Pull Requests Review Comments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/pulls/{id}/comments"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Create a comment.
+				</doc>
+				<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "body": "Nice change",
+  "commit_id": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
+  "path": "file1.txt",
+  "position": 4
+}
+
+
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/pulls/comments/{id}">
+			<method id="UpdatePullRequestComment" apigee:displayName="UpdatePullRequestComment" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Pull Requests Review Comments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/pulls/comments/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Edit a comment.
+				</doc>
+				<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "body": "Nice change"
+}
+					]]></apigee:payload>
+				</representation>
+				</request>
+			</method>
+		</resource>	
+
+	<resource path="/repos/{userName}/{repoName}/pulls/comments/{id}">
+			<method id="DeletePullRequestComment" apigee:displayName="DeletePullRequestComment" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Pull Requests Review Comments</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/pulls/comments/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/">
+					Delete a comment.
+				</doc>
+			</method>
+		</resource>		
+	
+	<resource path="/events">
+			<method id="ListPublicEvents" apigee:displayName="ListPublicEvents" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Events</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/events"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/events/">
+					List public events.
+				</doc>
+			</method>
+		</resource>	
+
+	<resource path="/repos/{userName}/{repoName}/events">
+			<method id="ListRepoEvents" apigee:displayName="ListRepoEvents" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Events</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/events"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/events/">
+					List repository events.
+				</doc>
+			</method>
+		</resource>	
+
+	<resource path="/repos/{userName}/{repoName}/issues/events">
+			<method id="ListRepoIssueEvents" apigee:displayName="ListRepoIssueEvents" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Events</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/issues/events"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/events/">
+					List issue events for a repository.
+				</doc>
+			</method>
+		</resource>	
+
+	<resource path="/networks/{userName}/{repoName}/events">
+			<method id="ListRepoPublicEvents" apigee:displayName="ListRepoPublicEvents" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Events</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/networks/{userName}/{repoName}/events"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/events/">
+					List public events for a network of repositories.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/orgs/{org}/events">
+			<method id="ListOrgPublicEvents" apigee:displayName="ListOrgPublicEvents" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Events</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/orgs/{org}/events"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/events/">
+					List public events for an organization.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="/users/{userName}/received_events">
+			<method id="ListUserReceivedEvents" apigee:displayName="ListUserReceivedEvents" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Events</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/users/{userName}/received_events"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/events/">
+					List events that a user has received.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="/users/{userName}/received_events/public">
+			<method id="ListUserReceivedPublicEvents" apigee:displayName="ListUserReceivedPublicEvents" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Events</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/users/{userName}/received_events/public"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/events/">
+					List public events that a user has received.
+				</doc>
+			</method>
+		</resource>	
+
+		<resource path="/users/{userName}/events">
+			<method id="ListUserEvents" apigee:displayName="ListUserEvents" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Events</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/users/{userName}/events"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/events/">
+					List events performed by a user.
+				</doc>
+			</method>
+		</resource>	
+
+		<resource path="/users/{userName}/events/public">
+			<method id="ListUserPublicEvents" apigee:displayName="ListUserPublicEvents" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Events</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/users/{userName}/events/public"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/events/">
+					List public events performed by a user.
+				</doc>
+			</method>
+		</resource>		
+		
+		<resource path="/users/{userName}/events/orgs/{org}">
+			<method id="ListOrgEvents" apigee:displayName="ListOrgEvents" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Events</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/users/{userName}/events/orgs/{org}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/events/">
+					List events for an organization.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="/user/repos">
+			<method id="ListRepo" apigee:displayName="ListRepo" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repos</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user/repos"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/">
+					List repositories for the authenticated user.
+				</doc>
+			</method>
+		</resource>		
+		
+		<resource path="/users/{userName}/repos">
+			<method id="ListPublicRepo" apigee:displayName="ListPublicRepo" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repos</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/users/{userName}/repos"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/">
+					List public repositories for the specified user.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/orgs/{org}/repos">
+			<method id="ListOrgRepo" apigee:displayName="ListOrgRepo" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repos</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/orgs/{org}/repos"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/">
+					List repositories for the specified org.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/user/repos">
+			<method id="CreateRepo" apigee:displayName="CreateRepo" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Repos</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user/repos"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/">
+					Create a new repository for the authenticated user.
+				</doc>
+				<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "name": "Hello-World",
+  "description": "This is your first repo",
+  "homepage": "https://github.com",
+  "public": true,
+  "has_issues": true,
+  "has_wiki": true,
+  "has_downloads": true
+}
+
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>	
+		
+		<resource path="/orgs/{org}/repos">
+			<method id="CreateOrgRepo" apigee:displayName="CreateOrgRepo" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Repos</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/orgs/{org}/repos"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/">
+					Create a new repository in this organization.
+				</doc>
+				<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "name": "Hello-World",
+  "description": "This is your first repo",
+  "homepage": "https://github.com",
+  "public": true,
+  "has_issues": true,
+  "has_wiki": true,
+  "has_downloads": true
+}
+
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>
+
+		<resource path="/repos/{userName}/{repoName}">
+			<method id="GetRepo" apigee:displayName="GetRepo" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repos</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/">
+					Get a User Repo.
+				</doc>
+			</method>
+		</resource>		
+		
+		<resource path="/repos/{userName}/{repoName}">
+			<method id="UpdateRepo" apigee:displayName="UpdateRepo" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Repos</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/">
+					Edit a User Repo.
+				</doc>
+				<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "name": "Hello-World",
+  "description": "This is your first repo",
+  "homepage": "https://github.com",
+  "public": true,
+  "has_issues": true,
+  "has_wiki": true,
+  "has_downloads": true
+}
+
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/contributors">
+			<method id="ListContributors" apigee:displayName="ListContributors" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repos</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/contributors"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/">
+					List contributors.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/languages">
+			<method id="ListLanguages" apigee:displayName="ListLanguages" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repos</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/languages"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/">
+					List languages.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/teams">
+			<method id="ListTeams" apigee:displayName="ListTeams" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repos</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/teams"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/">
+					List Teams.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/tags">
+			<method id="ListTags" apigee:displayName="ListTags" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repos</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/tags"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/">
+					List Tags.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/branches">
+			<method id="ListBranches" apigee:displayName="ListBranches" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repos</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/branches"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/">
+					List Branches.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/collaborators">
+			<method id="ListRepoCollaborators" apigee:displayName="ListRepoCollaborators" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Collaborators</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/collaborators"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/collaborators/">
+					List Repo Collaborators.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/collaborators/{user}">
+			<method id="GetRepoCollaborator" apigee:displayName="GetRepoCollaborator" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Collaborators</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/collaborators/{user}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/collaborators/">
+					Get Repo Collaborator.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/collaborators/{user}">
+			<method id="AddRepoCollaborator" apigee:displayName="AddRepoCollaborator" name="PUT">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Collaborators</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/collaborators/{user}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/collaborators/">
+					Add Repo Collaborator.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/collaborators/{user}">
+			<method id="DeleteRepoCollaborator" apigee:displayName="DeleteRepoCollaborator" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Collaborators</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/collaborators/{user}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/collaborators/">
+					Remove Repo Collaborator.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/commits">
+			<method id="ListRepoCommits" apigee:displayName="ListRepoCommits" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Commits</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/commits"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/commits/">
+					List commits on a repository.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/commits/{sha}">
+			<method id="GetRepoCommit" apigee:displayName="GetRepoCommit" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Commits</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/commits/{sha}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/commits/">
+					Get a single commit.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/comments">
+			<method id="ListRepoCommitComments" apigee:displayName="ListRepoCommitComments" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Commits</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/comments"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/commits/">
+					List commit comments for a repository.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/commits/{sha}/comments">
+			<method id="GetCommitComments" apigee:displayName="GetCommitComments" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Commits</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/commits/{sha}/comments"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/commits/">
+					List comments for a single commit.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/commits/{sha}/comments">
+			<method id="CreateCommitComments" apigee:displayName="CreateCommitComments" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Commits</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/commits/{sha}/comments"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/commits/">
+					Create a commit comment.
+				</doc>
+								<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "body": "Nice change",
+  "commit_id": "6dcb09b5b57875f334f61aebed695e2e4193db5e",
+  "line": 1,
+  "path": "file1.txt",
+  "position": 4
+}
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/comments/{id}">
+			<method id="GetCommitComment" apigee:displayName="GetCommitComment" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Commits</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/comments/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/commits/">
+					Get a single commit comment.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/comments/{id}">
+			<method id="UpdateCommitComment" apigee:displayName="UpdateCommitComment" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Commits</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/comments/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/commits/">
+					Update a commit comment.
+				</doc>
+				<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "body": "Nice change"
+}
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/compare/{base}...{head}">
+			<method id="CompareTwoCommits" apigee:displayName="CompareTwoCommits" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Commits</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/compare/{base}...{head}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/commits/">
+					Compare two commits.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/comments/{id}">
+			<method id="DeleteCommitComment" apigee:displayName="DeleteCommitComment" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Commits</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/comments/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/commits/">
+					Delete a commit comment.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/downloads">
+			<method id="ListRepoDownloads" apigee:displayName="ListRepoDownloads" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Downloads</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/downloads"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/downloads/">
+					List downloads for a repository.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/downloads/{id}">
+			<method id="GetRepoDownload" apigee:displayName="GetRepoDownload" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Downloads</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/downloads/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/downloads/">
+					Get a single download.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/downloads">
+			<method id="CreateRepoDownload" apigee:displayName="CreateRepoDownload" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Downloads</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/downloads"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/downloads/">
+					Create a new download (Part 1: Create the resource)
+				</doc>
+				<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "name": "new_file.jpg",
+  "size": 114034,
+  "description": "Latest release",
+  "content_type": "text/plain"
+}
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/downloads/{id}">
+			<method id="DeleteRepoDownload" apigee:displayName="DeleteRepoDownload" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Downloads</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/downloads/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/downloads/">
+					Delete a download.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/forks">
+			<method id="ListForks" apigee:displayName="ListForks" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Forks</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/forks"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/forks/">
+					List forks.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="/repos/{userName}/{repoName}/forks">
+			<method id="CreateFork" apigee:displayName="CreateFork" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Forks</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/forks"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/forks/">
+					Create a fork.
+				</doc>
+				<request>
+					<param name="org" required="false" type="string" style="query" default=""/>
+				</request>
+			</method>
+		</resource>	
+
+		<resource path="/repos/{userName}/{repoName}/keys">
+			<method id="ListRepoDeployKeys" apigee:displayName="ListRepoDeployKeys" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Deploy Keys</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/keys"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/keys/">
+					List Repo Deploy Keys.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/keys/{id}">
+			<method id="GetRepoDeployKey" apigee:displayName="GetRepoDeployKey" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Deploy Keys</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/keys/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/keys/">
+					Get Repo Deploy Keys.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/keys">
+			<method id="CreateRepoDeployKey" apigee:displayName="CreateRepoDeployKey" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Deploy Keys</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/keys"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/keys/">
+					Create Repo Deploy Keys.
+				</doc>
+								<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "title": "octocat@octomac",
+  "key": "ssh-rsa AAA..."
+}
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/keys/{id}">
+			<method id="UpdateRepoDeployKey" apigee:displayName="UpdateRepoDeployKey" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Deploy Keys</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/keys/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/keys/">
+					Edit Repo Deploy Keys.
+				</doc>
+								<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "title": "octocat@octomac",
+  "key": "ssh-rsa AAA..."
+}
+					]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>
+		
+		<resource path="/repos/{userName}/{repoName}/keys/{id}">
+			<method id="DeleteRepoDeployKey" apigee:displayName="DeleteRepoDeployKey" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Deploy Keys</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/keys/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/keys/">
+					Delete Repo Deploy Keys.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/watchers">
+			<method id="ListRepoWatchers" apigee:displayName="ListRepoWatchers" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Watching</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/watchers"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/watching/">
+					List watchers.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/users/{userName}/watched">
+			<method id="ListReposWatched" apigee:displayName="ListReposWatched" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Watching</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/users/{userName}/watched"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/watching/">
+					List repos being watched.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="/user/watched">
+			<method id="ListRepoUserWatched" apigee:displayName="ListRepoUserWatched" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Watching</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user/watched"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/watching/">
+					List repos being watched by the authenticated user.
+				</doc>
+			</method>
+		</resource>	
+
+		<resource path="/user/watched/{userName}/{repoName}">
+			<method id="CheckRepoWatching" apigee:displayName="CheckRepoWatching" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Watching</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user/watched/{userName}/{repoName}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/watching/">
+					Check if you are watching a repo.
+				</doc>
+			</method>
+		</resource>		
+				
+		<resource path="/user/watched/{userName}/{repoName}">
+			<method id="RepoWatch" apigee:displayName="RepoWatch" name="PUT">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Watching</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user/watched/{userName}/{repoName}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/watching/">
+					Watch a repo.
+				</doc>
+			</method>
+		</resource>	
+
+		<resource path="/user/watched/{userName}/{repoName}">
+			<method id="StopRepoWatch" apigee:displayName="StopRepoWatch" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Watching</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/user/watched/{userName}/{repoName}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/watching/">
+					Stop watching a repo.
+				</doc>
+			</method>
+		</resource>	
+
+		<resource path="/repos/{userName}/{repoName}/hooks">
+			<method id="ListRepoHooks" apigee:displayName="ListRepoHooks" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Hooks</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/hooks"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/hooks/">
+					List Repo Hooks.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/hooks/{id}">
+			<method id="GetRepoHook" apigee:displayName="GetRepoHook" name="GET">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Hooks</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/hooks/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/hooks/">
+					Get single hook.
+				</doc>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/hooks">
+			<method id="CreateRepoHook" apigee:displayName="CreateRepoHook" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Hooks</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/hooks"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/hooks/">
+					Create a hook.
+				</doc>
+				<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "name": "web",
+  "active": true,
+  "config": {
+    "url": "http://something.com/webhook"
+  }
+}
+	]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/hooks/{id}">
+			<method id="UpdateRepoHook" apigee:displayName="UpdateRepoHook" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Hooks</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/hooks/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/hooks/">
+					Edit a hook.
+				</doc>
+				<request>
+				<representation>
+					<apigee:payload><![CDATA[
+{
+  "name": "campfire",
+  "active": true,
+  "config": {
+    "subdomain": "github",
+    "room": "Commits",
+    "token": "abc123"
+  }
+}
+	]]></apigee:payload>
+				</representation>
+			</request>
+			</method>
+		</resource>	
+		
+		<resource path="/repos/{userName}/{repoName}/hooks/{id}/test">
+			<method id="TestRepoHook" apigee:displayName="TestRepoHook" name="POST">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Hooks</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/hooks/{id}/test"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/hooks/">
+					Test a hook.
+				</doc>
+			</method>
+		</resource>
+
+		<resource path="/repos/{userName}/{repoName}/hooks/{id}">
+			<method id="DeleteRepoHook" apigee:displayName="DeleteRepoHook" name="DELETE">
+				<apigee:tags>
+					<apigee:tag primary="true">Repo Hooks</apigee:tag>
+				</apigee:tags>
+				<apigee:authentication required="true"/>
+				<apigee:example url="/repos/{userName}/{repoName}/hooks/{id}"/>
+				<doc title="" apigee:url="http://developer.github.com/v3/repos/hooks/">
+					Delete a hook.
+				</doc>
+			</method>
+		</resource>		
+			
+			
+		
+		
+	</resources>	
+	
+</application>

@@ -1,0 +1,44 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+        version="2.0">
+    <persistence-unit name="APIModel">
+         <class>com.apigee.apimodel.impl.AbstractDocumentedImpl</class>
+         <class>com.apigee.apimodel.impl.AbstractRequestResponseImpl</class>
+         <class>com.apigee.apimodel.impl.AuthenticationMethodImpl</class>
+         <class>com.apigee.apimodel.impl.APIImpl</class>
+         <class>com.apigee.apimodel.impl.ChoiceParameterImpl</class>
+         <class>com.apigee.apimodel.impl.ExampleImpl</class>
+         <class>com.apigee.apimodel.impl.OperationImpl</class>
+         <class>com.apigee.apimodel.impl.OrganizationImpl</class>
+         <class>com.apigee.apimodel.impl.ParameterImpl</class>
+         <class>com.apigee.apimodel.impl.RepresentationImpl</class>
+         <class>com.apigee.apimodel.impl.ResourceImpl</class>
+         <class>com.apigee.apimodel.impl.ResponseCodeImpl</class>
+         <class>com.apigee.apimodel.impl.TagImpl</class>
+         <class>com.apigee.apimodel.impl.ValidValueImpl</class>
+         <properties>
+            <property name="javax.persistence.jdbc.driver" 
+                      value="com.mysql.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url" 
+                      value="jdbc:mysql://apimodel.cfjaqjdwbdhq.us-east-1.rds.amazonaws.com/apimodelstage" />
+            <property name="javax.persistence.jdbc.user" 
+                      value="apimodel_stage" />
+            <property name="javax.persistence.jdbc.password" 
+                      value="1l0v3ap1s" />
+
+            <property name="hibernate.show_sql" value="false" />
+            <property name="hibernate.dialect" 
+                      value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+
+			
+  
+  
+          <property name="hibernate.dbcp.initialSize" value="8"/>
+		  <property name="hibernate.dbcp.maxActive" value="20"/>
+		  <property name="hibernate.dbcp.maxIdle" value="20"/>
+		  <property name="hibernate.dbcp.minIdle" value="0"/>
+		  
+        </properties>
+    </persistence-unit>
+</persistence>

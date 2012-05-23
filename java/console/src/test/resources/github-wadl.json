@@ -1,0 +1,5695 @@
+{
+  "application": {
+    "endpoints": [
+      {
+        "base": "https://api.github.com",
+        "resources": [
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "false"
+              },
+              "apigee:displayName": "GetPagination",
+              "apigee:example": {
+                "url": "/repos?page={num}&per_page={perPage}"
+              },
+              "apigee:tags": {
+                "Pagination": null
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Return multiple items will be paginated with the page parameter and set a custom page size up to 100 with the per_page parameter.",
+                "title": ""
+              },
+              "id": "GetPagination",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "30",
+                "name": "num",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              },
+              {
+                "count": null,
+                "default": "100",
+                "name": "perPage",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos?page={num}&per_page={perPage}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListIssues",
+              "apigee:example": {
+                "url": "/issues"
+              },
+              "apigee:tags": {
+                "primary": "Issues"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/",
+                "content": "List your issues.",
+                "title": ""
+              },
+              "id": "ListIssues",
+              "name": "GET",
+              "params": [
+                {
+                  "count": null,
+                  "default": "assigned",
+                  "name": "filter",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "default": "",
+                  "name": "state",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "default": "created",
+                  "name": "sort",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "default": "desc",
+                  "name": "direction",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                }
+              ],
+              "request": {
+                "params": [
+                  {
+                    "count": null,
+                    "default": "assigned",
+                    "name": "filter",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "default": "",
+                    "name": "state",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "default": "created",
+                    "name": "sort",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "default": "desc",
+                    "name": "direction",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/issues"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetIssues",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/issues"
+              },
+              "apigee:tags": {
+                "primary": "Issues"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/",
+                "content": "List issues for this Repository.",
+                "title": ""
+              },
+              "id": "GetIssues",
+              "name": "GET",
+              "params": [
+                {
+                  "count": null,
+                  "default": "",
+                  "name": "state",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "default": "created",
+                  "name": "sort",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "default": "desc",
+                  "name": "direction",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                }
+              ],
+              "request": {
+                "params": [
+                  {
+                    "count": null,
+                    "default": "",
+                    "name": "state",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "default": "created",
+                    "name": "sort",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "default": "desc",
+                    "name": "direction",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/issues"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateIssue",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/issues"
+              },
+              "apigee:tags": {
+                "primary": "Issues"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/",
+                "content": "Create an Issue.",
+                "title": ""
+              },
+              "id": "CreateIssue",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n\t\t\t\t\t{\n  \"title\": \"Found a bug\",\n  \"body\": \"I'm having a problem with this.\",\n  \"assignee\": \"octocat\",\n  \"milestone\": 1,\n  \"labels\": [\n  \"Label1\",\n  \"Label2\"\n  ]\n}\n\t\t\t\t\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/issues"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetIssue",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/issues/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Issues"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/",
+                "content": "Returns a single Issue.",
+                "title": ""
+              },
+              "id": "GetIssue",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/issues/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "UpdateIssue",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/issues/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Issues"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/",
+                "content": "Edit an Issue.",
+                "title": ""
+              },
+              "id": "UpdateIssue",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n\t\t\t\t{\n  \"title\": \"Found a bug\",\n  \"body\": \"I'm having a problem with this.\",\n  \"assignee\": \"octocat\",\n  \"milestone\": 1,\n  \"state\": \"open\",\n  \"labels\": [\n  \"Label1\",\n  \"Label2\"\n  ]\n}\n\t\t\t\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/issues/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetIssueComments",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/issues/{id}/comments"
+              },
+              "apigee:tags": {
+                "primary": "Issue Comments"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/comments/",
+                "content": "Returns comments for an Issue.",
+                "title": ""
+              },
+              "id": "GetIssueComments",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/issues/{id}/comments"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateIssueComment",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/issues/{id}/comments"
+              },
+              "apigee:tags": {
+                "primary": "Issue Comments"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/comments/",
+                "content": "Create a comment for an Issue.",
+                "title": ""
+              },
+              "id": "CreateIssueComment",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n\t\t\t\t\t\t{\n  \"body\": \"a new comment\"\n}\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/issues/{id}/comments"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetIssueComment",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/issues/comments/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Issue Comments"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/comments/",
+                "content": "Returns a single Issue Comment.",
+                "title": ""
+              },
+              "id": "GetIssueComment",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/issues/comments/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "UpdateIssueComment",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/issues/comments/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Issue Comments"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/comments/",
+                "content": "Edit an Issue Comment.",
+                "title": ""
+              },
+              "id": "UpdateIssueComment",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n\t\t\t\t\t\t{\"body\" : \"String\"}\t\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/issues/comments/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "DeleteIssueComment",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/issues/comments/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Issue Comments"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/comments/",
+                "content": "Delete an Issue Comment.",
+                "title": ""
+              },
+              "id": "DeleteIssueComment",
+              "name": "DELETE"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/issues/comments/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetLabels",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/labels"
+              },
+              "apigee:tags": {
+                "primary": "Labels"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/labels/",
+                "content": "Returns a list all Labels for this Repository.",
+                "title": ""
+              },
+              "id": "GetLabels",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/labels"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateLabel",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/labels"
+              },
+              "apigee:tags": {
+                "primary": "Labels"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/labels/",
+                "content": "Create a Label.",
+                "title": ""
+              },
+              "id": "CreateLabel",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n\t\t\t\t\t\t{\"name\" : \"String\", \"color\" : \"hex\"}\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/labels"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetLabel",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/labels/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Labels"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/labels/",
+                "content": "Returns a single Label.",
+                "title": ""
+              },
+              "id": "GetLabel",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/labels/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "UpdateLabel",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/labels/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Labels"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/labels/",
+                "content": "Update a Label.",
+                "title": ""
+              },
+              "id": "UpdateLabel",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n\t\t\t\t\t\t{\"name\" : \"String\", \"color\" : \"hex\"}\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/labels/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "DeleteLabel",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/labels/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Labels"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/labels/",
+                "content": "Delete a label.",
+                "title": ""
+              },
+              "id": "DeleteLabel",
+              "name": "DELETE"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/labels/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetIssueLabels",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/issues/{id}/labels"
+              },
+              "apigee:tags": {
+                "primary": "Labels"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/labels/",
+                "content": "List labels on the Issue.",
+                "title": ""
+              },
+              "id": "GetIssueLabels",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/issues/{id}/labels"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateIssueLabels",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/issues/{id}/labels"
+              },
+              "apigee:tags": {
+                "primary": "Labels"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/labels/",
+                "content": "Add Labels to an Issue.",
+                "title": ""
+              },
+              "id": "CreateIssueLabels",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n\t\t\t\t\t\t[\"Label1\", \"Label2\"]\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/issues/{id}/labels"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "DeleteIssueLabel",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/issues/{id}/labels/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Labels"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/labels/",
+                "content": "Remove a Label from an Issue.",
+                "title": ""
+              },
+              "id": "DeleteIssueLabel",
+              "name": "DELETE"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/issues/{id}/labels/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "UpdateIssueLabels",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/issues/{id}/labels"
+              },
+              "apigee:tags": {
+                "primary": "Labels"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/labels/",
+                "content": "Replace all Labels for an Issue.",
+                "title": ""
+              },
+              "id": "UpdateIssueLabels",
+              "name": "PUT",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n\t\t\t\t\t\t[\"Label1\", \"Label2\"]\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/issues/{id}/labels"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "DeleteIssueLabels",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/issues/{id}/labels"
+              },
+              "apigee:tags": {
+                "primary": "Labels"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/labels/",
+                "content": "Remove all Labels from an Issue.",
+                "title": ""
+              },
+              "id": "DeleteIssueLabels",
+              "name": "DELETE"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/issues/{id}/labels"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetMilestoneIssueLabels",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/milestones/{id}/labels"
+              },
+              "apigee:tags": {
+                "primary": "Labels"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/labels/",
+                "content": "Returns Labels for every Issue in a Milestone.",
+                "title": ""
+              },
+              "id": "GetMilestoneIssueLabels",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/milestones/{id}/labels"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetMilestones",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/milestones"
+              },
+              "apigee:tags": {
+                "primary": "Milestones"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/milestones/",
+                "content": "List Milestones for an Issue.",
+                "title": ""
+              },
+              "id": "GetMilestones",
+              "name": "GET",
+              "params": [
+                {
+                  "count": null,
+                  "default": "open",
+                  "name": "state",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "default": "created",
+                  "name": "sort",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "default": "desc",
+                  "name": "direction",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                }
+              ],
+              "request": {
+                "params": [
+                  {
+                    "count": null,
+                    "default": "open",
+                    "name": "state",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "default": "created",
+                    "name": "sort",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "default": "desc",
+                    "name": "direction",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/milestones"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateMilestone",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/milestones"
+              },
+              "apigee:tags": {
+                "primary": "Milestones"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/milestones/",
+                "content": "Create a Milestone.",
+                "title": ""
+              },
+              "id": "CreateMilestone",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n\t\t\t\t\t\t{\"title\" : \"String\",\n\t\t\t\t\t\t\"state\" : \"open or closed\",\n\t\t\t\t\t\t\"description\" : \"String\",\n\t\t\t\t\t\t\"due_on\" : \"Time\"}\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/milestones"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetMilestone",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/milestones/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Milestones"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/milestones/",
+                "content": "Returns a single Milestone.",
+                "title": ""
+              },
+              "id": "GetMilestone",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/milestones/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "UpdateMilestone",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/milestones/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Milestones"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/milestones/",
+                "content": "Update a Milestone.",
+                "title": ""
+              },
+              "id": "UpdateMilestone",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n\t\t\t\t\t\t{\"title\" : \"String\",\n\t\t\t\t\t\t\t\"state\" : \"open\",\n\t\t\t\t\t\t\t\"description\" : \"String\",\n\t\t\t\t\t\t\t\"due_on\" : \"Time\"}\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/milestones/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "DeleteMilestone",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/milestones/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Milestones"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/milestones/",
+                "content": "Delete a Milestone.",
+                "title": ""
+              },
+              "id": "DeleteMilestone",
+              "name": "DELETE"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/milestones/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetIssueEvents",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/issues/{issueId}/events"
+              },
+              "apigee:tags": {
+                "primary": "Issue Events"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/events/",
+                "content": "Returns Events for an Issue.",
+                "title": ""
+              },
+              "id": "GetIssueEvents",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "1",
+                "name": "issueId",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/issues/{issueId}/events"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetRepoEvents",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/issues/events"
+              },
+              "apigee:tags": {
+                "primary": "Issue Events"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/events/",
+                "content": "Returns Events for a Repository.",
+                "title": ""
+              },
+              "id": "GetRepoEvents",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/issues/events"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetIssueEvent",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/issues/events/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Issue Events"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/issues/events/",
+                "content": "Returns a single Issue Event.",
+                "title": ""
+              },
+              "id": "GetIssueEvent",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "Hello-World",
+                "name": "reponame",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/issues/events/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "false"
+              },
+              "apigee:displayName": "ListUserGist",
+              "apigee:example": {
+                "url": "/users/{userName}/gists"
+              },
+              "apigee:tags": {
+                "primary": "Gists"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/gists/",
+                "content": "List a user's gists",
+                "title": ""
+              },
+              "id": "ListUserGist",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/users/{userName}/gists"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListAuthUserGist",
+              "apigee:example": {
+                "url": "/gists"
+              },
+              "apigee:tags": {
+                "primary": "Gists"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/gists/",
+                "content": "List the authenticated user\u2019s gists or if called anonymously, this will returns all public gists.",
+                "title": ""
+              },
+              "id": "ListAuthUserGist",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/gists"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListPublicGist",
+              "apigee:example": {
+                "url": "/gists/public"
+              },
+              "apigee:tags": {
+                "primary": "Gists"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/gists/",
+                "content": "List all public gists.",
+                "title": ""
+              },
+              "id": "ListPublicGist",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/gists/public"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListStarredGist",
+              "apigee:example": {
+                "url": "/gists/starred"
+              },
+              "apigee:tags": {
+                "primary": "Gists"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/gists/",
+                "content": "List the authenticated user\u2019s starred gists.",
+                "title": ""
+              },
+              "id": "ListStarredGist",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/gists/starred"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetGist",
+              "apigee:example": {
+                "url": "/gists/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Gists"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/gists/",
+                "content": "Get a single gist.",
+                "title": ""
+              },
+              "id": "GetGist",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/gists/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateGist",
+              "apigee:example": {
+                "url": "/users/{userName}/gists"
+              },
+              "apigee:tags": {
+                "primary": "Gists"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/gists/",
+                "content": "Create a new gist.",
+                "title": ""
+              },
+              "id": "CreateGist",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n\t\t\t\t\t\t{\n  \"description\": \"the description for this gist\",\n  \"public\": true,\n  \"files\": {\n  \"file1.txt\": {\n    \"content\": \"String file contents\"\n  }\n  }\n}\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "username",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/users/{userName}/gists"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "UpdateGist",
+              "apigee:example": {
+                "url": "/gists/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Gists"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/gists/",
+                "content": "Edit a gist.",
+                "title": ""
+              },
+              "id": "UpdateGist",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n\t\t\t\t\t\t{\n  \"description\": \"the description for this gist\",\n  \"files\": {\n  \"file1.txt\": {\n    \"content\": \"updated file contents\"\n  },\n  \"old_name.txt\": {\n    \"filename\": \"new_name.txt\",\n    \"content\": \"modified contents\"\n  },\n  \"new_file.txt\": {\n    \"content\": \"a new file\"\n  },\n  \"delete_this_file.txt\": null\n  }\n}\n\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/gists/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "StarGist",
+              "apigee:example": {
+                "url": "/gists/{id}/star"
+              },
+              "apigee:tags": {
+                "primary": "Gists"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/gists/",
+                "content": "Star a gist.",
+                "title": ""
+              },
+              "id": "StarGist",
+              "name": "PUT"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/gists/{id}/star"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "UnStarGist",
+              "apigee:example": {
+                "url": "/gists/{id}/star"
+              },
+              "apigee:tags": {
+                "primary": "Gists"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/gists/",
+                "content": "Unstar a gist.",
+                "title": ""
+              },
+              "id": "UnStarGist",
+              "name": "DELETE"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/gists/{id}/star"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CheckGistStarred",
+              "apigee:example": {
+                "url": "/gists/{id}/star"
+              },
+              "apigee:tags": {
+                "primary": "Gists"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/gists/",
+                "content": "Check if a gist is starred.",
+                "title": ""
+              },
+              "id": "CheckGistStarred",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/gists/{id}/star"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ForkGist",
+              "apigee:example": {
+                "url": "/gists/{id}/fork"
+              },
+              "apigee:tags": {
+                "primary": "Gists"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/gists/",
+                "content": "Fork a gist.",
+                "title": ""
+              },
+              "id": "ForkGist",
+              "name": "POST"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/gists/{id}/fork"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "DeleteGist",
+              "apigee:example": {
+                "url": "/gists/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Gists"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/gists/",
+                "content": "Delete a gist.",
+                "title": ""
+              },
+              "id": "DeleteGist",
+              "name": "DELETE"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/gists/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetGistComments",
+              "apigee:example": {
+                "url": "/gists/{gistId}/comments"
+              },
+              "apigee:tags": {
+                "primary": "Gist Comments"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/gists/comments/",
+                "content": "List Gist Comments.",
+                "title": ""
+              },
+              "id": "GetGistComments",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "1",
+                "name": "gistId",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/gists/{gistId}/comments"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetGistComment",
+              "apigee:example": {
+                "url": "/gists/comments/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Gist Comments"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/gists/comments/",
+                "content": "Returns a Gist Comment.",
+                "title": ""
+              },
+              "id": "GetGistComment",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/gists/comments/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateGistComment",
+              "apigee:example": {
+                "url": "/gists/{gistId}/comments"
+              },
+              "apigee:tags": {
+                "primary": "Gist Comments"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/gists/comments/",
+                "content": "Create a Gist Comment",
+                "title": ""
+              },
+              "id": "CreateGistComment",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n\t\t\t\t\t{\t\n\t\t\t\t\t\t\"body\" : \"String\"\n\t\t\t\t\t}\t\t\t\t\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "1",
+                "name": "gistId",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/gists/{gistId}/comments"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "UpdateGistComment",
+              "apigee:example": {
+                "url": "/gists/comments/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Gist Comments"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/gists/comments/",
+                "content": "Edit a Gist Comment.",
+                "title": ""
+              },
+              "id": "UpdateGistComment",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n\t\t\t\t\t{\t\n\t\t\t\t\t\t\"body\" : \"String\"\n\t\t\t\t\t}\t\t\t\t\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/gists/comments/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "DeleteGistComment",
+              "apigee:example": {
+                "url": "/gists/comments/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Gist Comments"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/gists/comments/",
+                "content": "Delete a Gist Comment.",
+                "title": ""
+              },
+              "id": "DeleteGistComment",
+              "name": "DELETE"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "1",
+                "name": "id",
+                "required": true,
+                "style": "query",
+                "type": "xsd:int"
+              }
+            ],
+            "path": "/gists/comments/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetAuthUser",
+              "apigee:example": {
+                "url": "/user"
+              },
+              "apigee:tags": {
+                "primary": "User"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Get the authenticated user.",
+                "title": ""
+              },
+              "id": "GetAuthUser",
+              "name": "GET"
+            },
+            "path": "/user"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetUser",
+              "apigee:example": {
+                "url": "/users/{userName}"
+              },
+              "apigee:tags": {
+                "primary": "User"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Get a single user.",
+                "title": ""
+              },
+              "id": "GetUser",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/users/{userName}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "UpdateUser",
+              "apigee:example": {
+                "url": "/user"
+              },
+              "apigee:tags": {
+                "primary": "User"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Update the authenticated user.",
+                "title": ""
+              },
+              "id": "UpdateUser",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"monalisa octocat\",\n\t\t\t\t\t\"email\": \"octocat@github.com\",\n\t\t\t\t  \"blog\": \"https://github.com/blog\",\n\t\t\t\t\t\"company\": \"GitHub\",\n\t\t\t\t\t\"location\": \"San Francisco\",\n\t\t\t\t   \"hireable\": true,\n\t\t\t\t\t\"bio\": \"There once...\"\n\t\t\t\t}\t\t\t\t\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "path": "/user"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListUserEmail",
+              "apigee:example": {
+                "url": "/user/emails"
+              },
+              "apigee:tags": {
+                "primary": "User Emails"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "List email addresses for a user.",
+                "title": ""
+              },
+              "id": "ListUserEmail",
+              "name": "GET"
+            },
+            "path": "/user/emails"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "AddEmailAddresses",
+              "apigee:example": {
+                "url": "/user/emails"
+              },
+              "apigee:tags": {
+                "primary": "User Emails"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Add email address(es).",
+                "title": ""
+              },
+              "id": "AddEmailAddresses",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n\t\t\t\t[\n\t\t\t\t\t\"octocat@github.com\",\n\t\t\t\t\t\"support@github.com\"\n\t\t\t\t]\t\t\t\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "path": "/user/emails"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "DeleteEmailAddresses",
+              "apigee:example": {
+                "url": "/user/emails"
+              },
+              "apigee:tags": {
+                "primary": "User Emails"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Delete email address(es).",
+                "title": ""
+              },
+              "id": "DeleteEmailAddresses",
+              "name": "DELETE",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n\t\t\t\t[\n\t\t\t\t\t\"octocat@github.com\",\n\t\t\t\t\t\"support@github.com\"\n\t\t\t\t]\t\t\t\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "path": "/user/emails"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "false"
+              },
+              "apigee:displayName": "ListUserFollower",
+              "apigee:example": {
+                "url": "/users/{userName}/followers"
+              },
+              "apigee:tags": {
+                "primary": "User Followers"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "List a user's followers.",
+                "title": ""
+              },
+              "id": "ListUserFollower",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/users/{userName}/followers"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListAuthUserFollower",
+              "apigee:example": {
+                "url": "/user/followers"
+              },
+              "apigee:tags": {
+                "primary": "User Followers"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "List the authenticated user's followers.",
+                "title": ""
+              },
+              "id": "ListAuthUserFollower",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/user/followers"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "false"
+              },
+              "apigee:displayName": "ListUserFollowing",
+              "apigee:example": {
+                "url": "/users/{userName}/following"
+              },
+              "apigee:tags": {
+                "primary": "User Followers"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "List who a user is following.",
+                "title": ""
+              },
+              "id": "ListUserFollowing",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/users/{userName}/following"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListAuthUserFollowing",
+              "apigee:example": {
+                "url": "/user/following"
+              },
+              "apigee:tags": {
+                "primary": "User Followers"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "List who the authenicated user is following.",
+                "title": ""
+              },
+              "id": "ListAuthUserFollowing",
+              "name": "GET"
+            },
+            "path": "/user/following"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "FollowUser",
+              "apigee:example": {
+                "url": "/user/following/{userName}"
+              },
+              "apigee:tags": {
+                "primary": "User Followers"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Follow a user.",
+                "title": ""
+              },
+              "id": "FollowUser",
+              "name": "PUT"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/user/following/{userName}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "UnFollowUser",
+              "apigee:example": {
+                "url": "/user/following/{userName}"
+              },
+              "apigee:tags": {
+                "primary": "User Followers"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Unfollow a user.",
+                "title": ""
+              },
+              "id": "UnFollowUser",
+              "name": "DELETE"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/user/following/{userName}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetFollowingUser",
+              "apigee:example": {
+                "url": "/user/following/{userName}"
+              },
+              "apigee:tags": {
+                "primary": "User Followers"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Check if you are following a user.",
+                "title": ""
+              },
+              "id": "GetFollowingUser",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/user/following/{userName}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListPublicKeys",
+              "apigee:example": {
+                "url": "/user/keys"
+              },
+              "apigee:tags": {
+                "primary": "User Public Keys"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "List public keys for a user.",
+                "title": ""
+              },
+              "id": "ListPublicKeys",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/user/keys"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetPublicKey",
+              "apigee:example": {
+                "url": "/user/keys/{id}"
+              },
+              "apigee:tags": {
+                "primary": "User Public Keys"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Get a single public key.",
+                "title": ""
+              },
+              "id": "GetPublicKey",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/user/keys/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreatePublicKey",
+              "apigee:example": {
+                "url": "/user/keys"
+              },
+              "apigee:tags": {
+                "primary": "User Public Keys"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Create a public key.",
+                "title": ""
+              },
+              "id": "CreatePublicKey",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n\t\t\t\t{\n\t\t\t\t\t\"title\": \"octocat@octomac\",\n\t\t\t\t\t\"key\": \"ssh-rsa AAA...\"\n\t\t\t\t}\t\t\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/user/keys"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "UpdatePublicKey",
+              "apigee:example": {
+                "url": "/user/keys/{id}"
+              },
+              "apigee:tags": {
+                "primary": "User Public Keys"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Update a public key.",
+                "title": ""
+              },
+              "id": "UpdatePublicKey",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n\t\t\t\t{\n\t\t\t\t\t\"title\": \"octocat@octomac\",\n\t\t\t\t\t\"key\": \"ssh-rsa AAA...\"\n\t\t\t\t}\t\t\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/user/keys/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "DeletePublicKey",
+              "apigee:example": {
+                "url": "/user/keys/{id}"
+              },
+              "apigee:tags": {
+                "primary": "User Public Keys"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Delete a public key.",
+                "title": ""
+              },
+              "id": "DeletePublicKey",
+              "name": "DELETE"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "octocat",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/user/keys/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetBlob",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/git/blobs/{sha}"
+              },
+              "apigee:tags": {
+                "primary": "Git Data"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Get a Blob.",
+                "title": ""
+              },
+              "id": "GetBlob",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/git/blobs/{sha}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateBlob",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/git/blobs"
+              },
+              "apigee:tags": {
+                "primary": "Git Data"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Create a Blob.",
+                "title": ""
+              },
+              "id": "CreateBlob",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n\t\t\t\t{\n  \"content\": \"Content of the blob\",\n  \"encoding\": \"utf-8\"\n}\n\t\t\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/git/blobs"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetCommit",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/git/commits/{sha}"
+              },
+              "apigee:tags": {
+                "primary": "Git Data"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Get a Commit.",
+                "title": ""
+              },
+              "id": "GetCommit",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/git/commits/{sha}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateCommit",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/git/commits"
+              },
+              "apigee:tags": {
+                "primary": "Git Data"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Create a Commit.",
+                "title": ""
+              },
+              "id": "CreateCommit",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"message\": \"my commit message\",\n  \"author\": {\n  \"name\": \"Scott Chacon\",\n  \"email\": \"schacon@gmail.com\",\n  \"date\": \"2008-07-09T16:13:30+12:00\"\n  },\n  \"parents\": [\n  \"7d1b31e74ee336d15cbd21741bc88a537ed063a0\"\n  ],\n  \"tree\": \"827efc6d56897b048c772eb4087f854f46256132\"\n}\n\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/git/commits"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetReference",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/git/refs/{ref}"
+              },
+              "apigee:tags": {
+                "primary": "Git Data"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Get a Reference.",
+                "title": ""
+              },
+              "id": "GetReference",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/git/refs/{ref}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetReferences",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/git/refs"
+              },
+              "apigee:tags": {
+                "primary": "Git Data"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Get all References.",
+                "title": ""
+              },
+              "id": "GetReferences",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/git/refs"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetTagReferences",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/git/refs/tags"
+              },
+              "apigee:tags": {
+                "primary": "Git Data"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Get all the tag references.",
+                "title": ""
+              },
+              "id": "GetTagReferences",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/git/refs/tags"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateReference",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/git/refs"
+              },
+              "apigee:tags": {
+                "primary": "Git Data"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Create a Reference.",
+                "title": ""
+              },
+              "id": "CreateReference",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"ref\": \"refs/heads/master\",\n  \"sha\": \"827efc6d56897b048c772eb4087f854f46256132\"\n}\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/git/refs"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "UpdateReference",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/git/refs/{ref}"
+              },
+              "apigee:tags": {
+                "primary": "Git Data"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Update a Reference.",
+                "title": ""
+              },
+              "id": "UpdateReference",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"sha\": \"aa218f56b14c9653891f9e74264a383fa43fefbd\",\n  \"force\": true\n}\n\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/git/refs/{ref}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetTag",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/git/tags/{sha}"
+              },
+              "apigee:tags": {
+                "primary": "Git Data"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Get a Tag.",
+                "title": ""
+              },
+              "id": "GetTag",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/git/tags/{sha}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateTagObject",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/git/tags"
+              },
+              "apigee:tags": {
+                "primary": "Git Data"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Create a Tag Object.",
+                "title": ""
+              },
+              "id": "CreateTagObject",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"tag\": \"v0.0.1\",\n  \"sha\": \"940bd336248efae0f9ee5bc7b2d5c985887b16ac\",\n  \"message\": \"initial version\",\n  \"object\": \"commit\"\n}\n\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/git/tags"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetTree",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/git/trees/{sha}"
+              },
+              "apigee:tags": {
+                "primary": "Git Data"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Get a Tree.",
+                "title": ""
+              },
+              "id": "GetTree",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/git/trees/{sha}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetTreeRecursively",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/git/trees/{sha}?recursive=1"
+              },
+              "apigee:tags": {
+                "primary": "Git Data"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Get a Tree Recursively.",
+                "title": ""
+              },
+              "id": "GetTreeRecursively",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/git/trees/{sha}?recursive=1"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateTree",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/git/trees"
+              },
+              "apigee:tags": {
+                "primary": "Git Data"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Create a Tree.",
+                "title": ""
+              },
+              "id": "CreateTree",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"tree\": [\n  {\n    \"path\": \"file.rb\",\n    \"mode\": \"100644\",\n    \"type\": \"blob\",\n    \"sha\": \"44b4fc6d56897b048c772eb4087f854f46256132\"\n  }\n  ]\n}\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/repos/{userName}/{repoName}/git/trees"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListOrg",
+              "apigee:example": {
+                "url": "/users/{userName}/orgs"
+              },
+              "apigee:tags": {
+                "primary": "Organizations"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "List all public organizations for a user.",
+                "title": ""
+              },
+              "id": "ListOrg",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/users/{userName}/orgs"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListAuthUserOrg",
+              "apigee:example": {
+                "url": "/user/orgs"
+              },
+              "apigee:tags": {
+                "primary": "Organizations"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "List public and private organizations for the authenticated user.",
+                "title": ""
+              },
+              "id": "ListAuthUserOrg",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/user/orgs"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetOrg",
+              "apigee:example": {
+                "url": "/orgs/{org}"
+              },
+              "apigee:tags": {
+                "primary": "Organizations"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Retrieves an Organization.",
+                "title": ""
+              },
+              "id": "GetOrg",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/orgs/{org}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "UpdateOrg",
+              "apigee:example": {
+                "url": "/orgs/{org}"
+              },
+              "apigee:tags": {
+                "primary": "Organizations"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Edit an Organization.",
+                "title": ""
+              },
+              "id": "UpdateOrg",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"billing_email\": \"support@github.com\",\n  \"blog\": \"https://github.com/blog\",\n  \"company\": \"GitHub\",\n  \"email\": \"support@github.com\",\n  \"location\": \"San Francisco\",\n  \"name\": \"github\"\n}\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/orgs/{org}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListMembers",
+              "apigee:example": {
+                "url": "/orgs/{org}/members"
+              },
+              "apigee:tags": {
+                "primary": "Organization Members"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "List all users who are members of an organization.",
+                "title": ""
+              },
+              "id": "ListMembers",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/orgs/{org}/members"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetMember",
+              "apigee:example": {
+                "url": "/orgs/{org}/members/{userName}"
+              },
+              "apigee:tags": {
+                "primary": "Organization Members"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Get member.",
+                "title": ""
+              },
+              "id": "GetMember",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/orgs/{org}/members/{userName}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateMember",
+              "apigee:example": {
+                "url": "/teams/{id}/members/{user}"
+              },
+              "apigee:tags": {
+                "primary": "Organization Members"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Add a member.",
+                "title": ""
+              },
+              "id": "CreateMember",
+              "name": "PUT"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/teams/{id}/members/{user}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "DeleteMember",
+              "apigee:example": {
+                "url": "/teams/{id}/members/{user}"
+              },
+              "apigee:tags": {
+                "primary": "Organization Members"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Remove a member.",
+                "title": ""
+              },
+              "id": "DeleteMember",
+              "name": "DELETE"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/orgs/{org}/members/{userName}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListPublicMembers",
+              "apigee:example": {
+                "url": "/orgs/{org}/public_members"
+              },
+              "apigee:tags": {
+                "primary": "Organization Members"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "List public members.",
+                "title": ""
+              },
+              "id": "ListPublicMembers",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/orgs/{org}/public_members"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetUserPublicMember",
+              "apigee:example": {
+                "url": "/orgs/{org}/public_members/{userName}"
+              },
+              "apigee:tags": {
+                "primary": "Organization Members"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Get if a user is a public member.",
+                "title": ""
+              },
+              "id": "GetUserPublicMember",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/orgs/{org}/public_members/{userName}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "PublicizeUserMembership",
+              "apigee:example": {
+                "url": "/orgs/{org}/public_members/{userName}"
+              },
+              "apigee:tags": {
+                "primary": "Organization Members"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Publicize a user\u2019s membership",
+                "title": ""
+              },
+              "id": "PublicizeUserMembership",
+              "name": "PUT"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/orgs/{org}/public_members/{userName}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ConcealUserMembership",
+              "apigee:example": {
+                "url": "/orgs/{org}/public_members/{userName}"
+              },
+              "apigee:tags": {
+                "primary": "Organization Members"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Conceal a user\u2019s membership",
+                "title": ""
+              },
+              "id": "ConcealUserMembership",
+              "name": "DELETE"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/orgs/{org}/public_members/{userName}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListOrgTeams",
+              "apigee:example": {
+                "url": "/orgs/{org}/teams"
+              },
+              "apigee:tags": {
+                "primary": "Organization Teams"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "List teams.",
+                "title": ""
+              },
+              "id": "ListOrgTeams",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/orgs/{org}/teams"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetTeam",
+              "apigee:example": {
+                "url": "/teams/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Organization Teams"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Get team.",
+                "title": ""
+              },
+              "id": "GetTeam",
+              "name": "GET"
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/teams/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateTeam",
+              "apigee:example": {
+                "url": "/orgs/{org}/teams"
+              },
+              "apigee:tags": {
+                "primary": "Organization Teams"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Create team.",
+                "title": ""
+              },
+              "id": "CreateTeam",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"name\": \"new team\",\n  \"permission\": \"push\",\n  \"repo_names\": [\n  \"github/dotfiles\"\n  ]\n}\n\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/orgs/{org}/teams"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "UpdateTeam",
+              "apigee:example": {
+                "url": "/teams/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Organization Teams"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Edit team.",
+                "title": ""
+              },
+              "id": "UpdateTeam",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"name\": \"new team name\",\n  \"permission\": \"push\"\n}\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "params": [
+              {
+                "count": null,
+                "default": "",
+                "name": "userName",
+                "required": true,
+                "style": "query",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/teams/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "DeleteTeam",
+              "apigee:example": {
+                "url": "/teams/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Organization Teams"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Delete team.",
+                "title": ""
+              },
+              "id": "DeleteTeam",
+              "name": "DELETE"
+            },
+            "path": "/teams/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListTeamMembers",
+              "apigee:example": {
+                "url": "/teams/{id}/members"
+              },
+              "apigee:tags": {
+                "primary": "Organization Teams"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "List team members.",
+                "title": ""
+              },
+              "id": "ListTeamMembers",
+              "name": "GET"
+            },
+            "path": "/teams/{id}/members"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetTeamMember",
+              "apigee:example": {
+                "url": "/teams/{id}/members/{userName}"
+              },
+              "apigee:tags": {
+                "primary": "Organization Teams"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Get team member.",
+                "title": ""
+              },
+              "id": "GetTeamMember",
+              "name": "GET"
+            },
+            "path": "/teams/{id}/members/{userName}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateTeamMember",
+              "apigee:example": {
+                "url": "/teams/{id}/members/{userName}"
+              },
+              "apigee:tags": {
+                "primary": "Organization Teams"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Add team member.",
+                "title": ""
+              },
+              "id": "CreateTeamMember",
+              "name": "PUT"
+            },
+            "path": "/teams/{id}/members/{userName}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "DeleteTeamMember",
+              "apigee:example": {
+                "url": "/teams/{id}/members/{userName}"
+              },
+              "apigee:tags": {
+                "primary": "Organization Teams"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Remove team member.",
+                "title": ""
+              },
+              "id": "DeleteTeamMember",
+              "name": "DELETE"
+            },
+            "path": "/teams/{id}/members/{userName}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListTeamRepos",
+              "apigee:example": {
+                "url": "/teams/{id}/repos"
+              },
+              "apigee:tags": {
+                "primary": "Organization Teams"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "List team repos.",
+                "title": ""
+              },
+              "id": "ListTeamRepos",
+              "name": "GET"
+            },
+            "path": "/teams/{id}/repos"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetTeamRepo",
+              "apigee:example": {
+                "url": "/teams/{id}/repos/{userName}/{repoName}"
+              },
+              "apigee:tags": {
+                "primary": "Organization Teams"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Get team repo.",
+                "title": ""
+              },
+              "id": "GetTeamRepo",
+              "name": "GET"
+            },
+            "path": "/teams/{id}/repos/{userName}/{repoName}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateTeamRepo",
+              "apigee:example": {
+                "url": "/teams/{id}/repos/{userName}/{repoName}"
+              },
+              "apigee:tags": {
+                "primary": "Organization Teams"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Add team repo.",
+                "title": ""
+              },
+              "id": "CreateTeamRepo",
+              "name": "PUT"
+            },
+            "path": "/teams/{id}/repos/{userName}/{repoName}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "DeleteTeamRepo",
+              "apigee:example": {
+                "url": "/teams/{id}/repos/{userName}/{repoName}"
+              },
+              "apigee:tags": {
+                "primary": "Organization Teams"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Remove team repo.",
+                "title": ""
+              },
+              "id": "DeleteTeamRepo",
+              "name": "DELETE"
+            },
+            "path": "/teams/{id}/repos/{userName}/{repoName}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetPullRequests",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/pulls"
+              },
+              "apigee:tags": {
+                "primary": "Pull Requests"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "List pull requests.",
+                "title": ""
+              },
+              "id": "GetPullRequests",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/pulls"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetPullRequest",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/pulls/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Pull Requests"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Get a single pull request.",
+                "title": ""
+              },
+              "id": "GetPullRequest",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/pulls/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreatePullRequest",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/pulls"
+              },
+              "apigee:tags": {
+                "primary": "Pull Requests"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Create a pull request.",
+                "title": ""
+              },
+              "id": "CreatePullRequest",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"title\": \"Amazing new feature\",\n  \"body\": \"Please pull this in!\",\n  \"head\": \"octocat:new-feature\",\n  \"base\": \"master\"\n}\n\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "path": "/repos/{userName}/{repoName}/pulls"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "UpdatePullRequest",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/pulls/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Pull Requests"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Update a pull request.",
+                "title": ""
+              },
+              "id": "UpdatePullRequest",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"title\": \"new title\",\n  \"body\": \"updated body\",\n  \"state\": \"open\"\n}\n\n\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "path": "/repos/{userName}/{repoName}/pulls/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListPullRequestCommits",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/pulls/{id}/commits"
+              },
+              "apigee:tags": {
+                "primary": "Pull Requests"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "List commits on a pull request.",
+                "title": ""
+              },
+              "id": "ListPullRequestCommits",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/pulls/{id}/commits"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListPullRequestFiles",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/pulls/{id}/files"
+              },
+              "apigee:tags": {
+                "primary": "Pull Requests"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "List pull requests files.",
+                "title": ""
+              },
+              "id": "ListPullRequestFiles",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/pulls/{id}/files"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetPullRequestMerged",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/pulls/{id}/merge"
+              },
+              "apigee:tags": {
+                "primary": "Pull Requests"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Get if a pull request has been merged.",
+                "title": ""
+              },
+              "id": "GetPullRequestMerged",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/pulls/{id}/merge"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "MergePullRequest",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/pulls/{id}/merge"
+              },
+              "apigee:tags": {
+                "primary": "Pull Requests"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Merge a pull request.",
+                "title": ""
+              },
+              "id": "MergePullRequest",
+              "name": "PUT"
+            },
+            "path": "/repos/{userName}/{repoName}/pulls/{id}/merge"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListPullRequestComment",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/pulls/{id}/comments"
+              },
+              "apigee:tags": {
+                "primary": "Pull Requests Review Comments"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "List comments on a pull request.",
+                "title": ""
+              },
+              "id": "ListPullRequestComment",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/pulls/{id}/comments"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetPullRequestComment",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/pulls/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Pull Requests Review Comments"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/orgs/",
+                "content": "Get a single comment.",
+                "title": ""
+              },
+              "id": "GetPullRequestComment",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/pulls/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreatePullRequestComment",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/pulls/{id}/comments"
+              },
+              "apigee:tags": {
+                "primary": "Pull Requests Review Comments"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Create a comment.",
+                "title": ""
+              },
+              "id": "CreatePullRequestComment",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"body\": \"Nice change\",\n  \"commit_id\": \"6dcb09b5b57875f334f61aebed695e2e4193db5e\",\n  \"path\": \"file1.txt\",\n  \"position\": 4\n}\n\n\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "path": "/repos/{userName}/{repoName}/pulls/{id}/comments"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "UpdatePullRequestComment",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/pulls/comments/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Pull Requests Review Comments"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Edit a comment.",
+                "title": ""
+              },
+              "id": "UpdatePullRequestComment",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"body\": \"Nice change\"\n}\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "path": "/repos/{userName}/{repoName}/pulls/comments/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "DeletePullRequestComment",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/pulls/comments/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Pull Requests Review Comments"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/",
+                "content": "Delete a comment.",
+                "title": ""
+              },
+              "id": "DeletePullRequestComment",
+              "name": "DELETE"
+            },
+            "path": "/repos/{userName}/{repoName}/pulls/comments/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListPublicEvents",
+              "apigee:example": {
+                "url": "/events"
+              },
+              "apigee:tags": {
+                "primary": "Events"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/events/",
+                "content": "List public events.",
+                "title": ""
+              },
+              "id": "ListPublicEvents",
+              "name": "GET"
+            },
+            "path": "/events"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListRepoEvents",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/events"
+              },
+              "apigee:tags": {
+                "primary": "Events"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/events/",
+                "content": "List repository events.",
+                "title": ""
+              },
+              "id": "ListRepoEvents",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/events"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListRepoIssueEvents",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/issues/events"
+              },
+              "apigee:tags": {
+                "primary": "Events"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/events/",
+                "content": "List issue events for a repository.",
+                "title": ""
+              },
+              "id": "ListRepoIssueEvents",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/issues/events"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListRepoPublicEvents",
+              "apigee:example": {
+                "url": "/networks/{userName}/{repoName}/events"
+              },
+              "apigee:tags": {
+                "primary": "Events"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/events/",
+                "content": "List public events for a network of repositories.",
+                "title": ""
+              },
+              "id": "ListRepoPublicEvents",
+              "name": "GET"
+            },
+            "path": "/networks/{userName}/{repoName}/events"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListOrgPublicEvents",
+              "apigee:example": {
+                "url": "/orgs/{org}/events"
+              },
+              "apigee:tags": {
+                "primary": "Events"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/events/",
+                "content": "List public events for an organization.",
+                "title": ""
+              },
+              "id": "ListOrgPublicEvents",
+              "name": "GET"
+            },
+            "path": "/orgs/{org}/events"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListUserReceivedEvents",
+              "apigee:example": {
+                "url": "/users/{userName}/received_events"
+              },
+              "apigee:tags": {
+                "primary": "Events"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/events/",
+                "content": "List events that a user has received.",
+                "title": ""
+              },
+              "id": "ListUserReceivedEvents",
+              "name": "GET"
+            },
+            "path": "/users/{userName}/received_events"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListUserReceivedPublicEvents",
+              "apigee:example": {
+                "url": "/users/{userName}/received_events/public"
+              },
+              "apigee:tags": {
+                "primary": "Events"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/events/",
+                "content": "List public events that a user has received.",
+                "title": ""
+              },
+              "id": "ListUserReceivedPublicEvents",
+              "name": "GET"
+            },
+            "path": "/users/{userName}/received_events/public"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListUserEvents",
+              "apigee:example": {
+                "url": "/users/{userName}/events"
+              },
+              "apigee:tags": {
+                "primary": "Events"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/events/",
+                "content": "List events performed by a user.",
+                "title": ""
+              },
+              "id": "ListUserEvents",
+              "name": "GET"
+            },
+            "path": "/users/{userName}/events"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListUserPublicEvents",
+              "apigee:example": {
+                "url": "/users/{userName}/events/public"
+              },
+              "apigee:tags": {
+                "primary": "Events"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/events/",
+                "content": "List public events performed by a user.",
+                "title": ""
+              },
+              "id": "ListUserPublicEvents",
+              "name": "GET"
+            },
+            "path": "/users/{userName}/events/public"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListOrgEvents",
+              "apigee:example": {
+                "url": "/users/{userName}/events/orgs/{org}"
+              },
+              "apigee:tags": {
+                "primary": "Events"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/events/",
+                "content": "List events for an organization.",
+                "title": ""
+              },
+              "id": "ListOrgEvents",
+              "name": "GET"
+            },
+            "path": "/users/{userName}/events/orgs/{org}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListRepo",
+              "apigee:example": {
+                "url": "/user/repos"
+              },
+              "apigee:tags": {
+                "primary": "Repos"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/",
+                "content": "List repositories for the authenticated user.",
+                "title": ""
+              },
+              "id": "ListRepo",
+              "name": "GET"
+            },
+            "path": "/user/repos"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListPublicRepo",
+              "apigee:example": {
+                "url": "/users/{userName}/repos"
+              },
+              "apigee:tags": {
+                "primary": "Repos"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/",
+                "content": "List public repositories for the specified user.",
+                "title": ""
+              },
+              "id": "ListPublicRepo",
+              "name": "GET"
+            },
+            "path": "/users/{userName}/repos"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListOrgRepo",
+              "apigee:example": {
+                "url": "/orgs/{org}/repos"
+              },
+              "apigee:tags": {
+                "primary": "Repos"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/",
+                "content": "List repositories for the specified org.",
+                "title": ""
+              },
+              "id": "ListOrgRepo",
+              "name": "GET"
+            },
+            "path": "/orgs/{org}/repos"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateRepo",
+              "apigee:example": {
+                "url": "/user/repos"
+              },
+              "apigee:tags": {
+                "primary": "Repos"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/",
+                "content": "Create a new repository for the authenticated user.",
+                "title": ""
+              },
+              "id": "CreateRepo",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"name\": \"Hello-World\",\n  \"description\": \"This is your first repo\",\n  \"homepage\": \"https://github.com\",\n  \"public\": true,\n  \"has_issues\": true,\n  \"has_wiki\": true,\n  \"has_downloads\": true\n}\n\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "path": "/user/repos"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateOrgRepo",
+              "apigee:example": {
+                "url": "/orgs/{org}/repos"
+              },
+              "apigee:tags": {
+                "primary": "Repos"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/",
+                "content": "Create a new repository in this organization.",
+                "title": ""
+              },
+              "id": "CreateOrgRepo",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"name\": \"Hello-World\",\n  \"description\": \"This is your first repo\",\n  \"homepage\": \"https://github.com\",\n  \"public\": true,\n  \"has_issues\": true,\n  \"has_wiki\": true,\n  \"has_downloads\": true\n}\n\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "path": "/orgs/{org}/repos"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetRepo",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}"
+              },
+              "apigee:tags": {
+                "primary": "Repos"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/",
+                "content": "Get a User Repo.",
+                "title": ""
+              },
+              "id": "GetRepo",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "UpdateRepo",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}"
+              },
+              "apigee:tags": {
+                "primary": "Repos"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/",
+                "content": "Edit a User Repo.",
+                "title": ""
+              },
+              "id": "UpdateRepo",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"name\": \"Hello-World\",\n  \"description\": \"This is your first repo\",\n  \"homepage\": \"https://github.com\",\n  \"public\": true,\n  \"has_issues\": true,\n  \"has_wiki\": true,\n  \"has_downloads\": true\n}\n\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "path": "/repos/{userName}/{repoName}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListContributors",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/contributors"
+              },
+              "apigee:tags": {
+                "primary": "Repos"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/",
+                "content": "List contributors.",
+                "title": ""
+              },
+              "id": "ListContributors",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/contributors"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListLanguages",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/languages"
+              },
+              "apigee:tags": {
+                "primary": "Repos"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/",
+                "content": "List languages.",
+                "title": ""
+              },
+              "id": "ListLanguages",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/languages"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListTeams",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/teams"
+              },
+              "apigee:tags": {
+                "primary": "Repos"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/",
+                "content": "List Teams.",
+                "title": ""
+              },
+              "id": "ListTeams",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/teams"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListTags",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/tags"
+              },
+              "apigee:tags": {
+                "primary": "Repos"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/",
+                "content": "List Tags.",
+                "title": ""
+              },
+              "id": "ListTags",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/tags"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListBranches",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/branches"
+              },
+              "apigee:tags": {
+                "primary": "Repos"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/",
+                "content": "List Branches.",
+                "title": ""
+              },
+              "id": "ListBranches",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/branches"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListRepoCollaborators",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/collaborators"
+              },
+              "apigee:tags": {
+                "primary": "Repo Collaborators"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/collaborators/",
+                "content": "List Repo Collaborators.",
+                "title": ""
+              },
+              "id": "ListRepoCollaborators",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/collaborators"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetRepoCollaborator",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/collaborators/{user}"
+              },
+              "apigee:tags": {
+                "primary": "Repo Collaborators"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/collaborators/",
+                "content": "Get Repo Collaborator.",
+                "title": ""
+              },
+              "id": "GetRepoCollaborator",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/collaborators/{user}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "AddRepoCollaborator",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/collaborators/{user}"
+              },
+              "apigee:tags": {
+                "primary": "Repo Collaborators"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/collaborators/",
+                "content": "Add Repo Collaborator.",
+                "title": ""
+              },
+              "id": "AddRepoCollaborator",
+              "name": "PUT"
+            },
+            "path": "/repos/{userName}/{repoName}/collaborators/{user}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "DeleteRepoCollaborator",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/collaborators/{user}"
+              },
+              "apigee:tags": {
+                "primary": "Repo Collaborators"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/collaborators/",
+                "content": "Remove Repo Collaborator.",
+                "title": ""
+              },
+              "id": "DeleteRepoCollaborator",
+              "name": "DELETE"
+            },
+            "path": "/repos/{userName}/{repoName}/collaborators/{user}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListRepoCommits",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/commits"
+              },
+              "apigee:tags": {
+                "primary": "Repo Commits"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/commits/",
+                "content": "List commits on a repository.",
+                "title": ""
+              },
+              "id": "ListRepoCommits",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/commits"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetRepoCommit",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/commits/{sha}"
+              },
+              "apigee:tags": {
+                "primary": "Repo Commits"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/commits/",
+                "content": "Get a single commit.",
+                "title": ""
+              },
+              "id": "GetRepoCommit",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/commits/{sha}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListRepoCommitComments",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/comments"
+              },
+              "apigee:tags": {
+                "primary": "Repo Commits"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/commits/",
+                "content": "List commit comments for a repository.",
+                "title": ""
+              },
+              "id": "ListRepoCommitComments",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/comments"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetCommitComments",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/commits/{sha}/comments"
+              },
+              "apigee:tags": {
+                "primary": "Repo Commits"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/commits/",
+                "content": "List comments for a single commit.",
+                "title": ""
+              },
+              "id": "GetCommitComments",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/commits/{sha}/comments"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateCommitComments",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/commits/{sha}/comments"
+              },
+              "apigee:tags": {
+                "primary": "Repo Commits"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/commits/",
+                "content": "Create a commit comment.",
+                "title": ""
+              },
+              "id": "CreateCommitComments",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"body\": \"Nice change\",\n  \"commit_id\": \"6dcb09b5b57875f334f61aebed695e2e4193db5e\",\n  \"line\": 1,\n  \"path\": \"file1.txt\",\n  \"position\": 4\n}\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "path": "/repos/{userName}/{repoName}/commits/{sha}/comments"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetCommitComment",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/comments/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Repo Commits"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/commits/",
+                "content": "Get a single commit comment.",
+                "title": ""
+              },
+              "id": "GetCommitComment",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/comments/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "UpdateCommitComment",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/comments/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Repo Commits"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/commits/",
+                "content": "Update a commit comment.",
+                "title": ""
+              },
+              "id": "UpdateCommitComment",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"body\": \"Nice change\"\n}\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "path": "/repos/{userName}/{repoName}/comments/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CompareTwoCommits",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/compare/{base}...{head}"
+              },
+              "apigee:tags": {
+                "primary": "Repo Commits"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/commits/",
+                "content": "Compare two commits.",
+                "title": ""
+              },
+              "id": "CompareTwoCommits",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/compare/{base}...{head}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "DeleteCommitComment",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/comments/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Repo Commits"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/commits/",
+                "content": "Delete a commit comment.",
+                "title": ""
+              },
+              "id": "DeleteCommitComment",
+              "name": "DELETE"
+            },
+            "path": "/repos/{userName}/{repoName}/comments/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListRepoDownloads",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/downloads"
+              },
+              "apigee:tags": {
+                "primary": "Repo Downloads"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/downloads/",
+                "content": "List downloads for a repository.",
+                "title": ""
+              },
+              "id": "ListRepoDownloads",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/downloads"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetRepoDownload",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/downloads/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Repo Downloads"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/downloads/",
+                "content": "Get a single download.",
+                "title": ""
+              },
+              "id": "GetRepoDownload",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/downloads/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateRepoDownload",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/downloads"
+              },
+              "apigee:tags": {
+                "primary": "Repo Downloads"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/downloads/",
+                "content": "Create a new download (Part 1: Create the resource)",
+                "title": ""
+              },
+              "id": "CreateRepoDownload",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"name\": \"new_file.jpg\",\n  \"size\": 114034,\n  \"description\": \"Latest release\",\n  \"content_type\": \"text/plain\"\n}\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "path": "/repos/{userName}/{repoName}/downloads"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "DeleteRepoDownload",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/downloads/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Repo Downloads"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/downloads/",
+                "content": "Delete a download.",
+                "title": ""
+              },
+              "id": "DeleteRepoDownload",
+              "name": "DELETE"
+            },
+            "path": "/repos/{userName}/{repoName}/downloads/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListForks",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/forks"
+              },
+              "apigee:tags": {
+                "primary": "Repo Forks"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/forks/",
+                "content": "List forks.",
+                "title": ""
+              },
+              "id": "ListForks",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/forks"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateFork",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/forks"
+              },
+              "apigee:tags": {
+                "primary": "Repo Forks"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/forks/",
+                "content": "Create a fork.",
+                "title": ""
+              },
+              "id": "CreateFork",
+              "name": "POST",
+              "params": [
+                {
+                  "count": null,
+                  "default": "",
+                  "name": "org",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                }
+              ],
+              "request": {
+                "params": [
+                  {
+                    "count": null,
+                    "default": "",
+                    "name": "org",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  }
+                ]
+              }
+            },
+            "path": "/repos/{userName}/{repoName}/forks"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListRepoDeployKeys",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/keys"
+              },
+              "apigee:tags": {
+                "primary": "Repo Deploy Keys"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/keys/",
+                "content": "List Repo Deploy Keys.",
+                "title": ""
+              },
+              "id": "ListRepoDeployKeys",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/keys"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetRepoDeployKey",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/keys/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Repo Deploy Keys"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/keys/",
+                "content": "Get Repo Deploy Keys.",
+                "title": ""
+              },
+              "id": "GetRepoDeployKey",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/keys/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateRepoDeployKey",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/keys"
+              },
+              "apigee:tags": {
+                "primary": "Repo Deploy Keys"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/keys/",
+                "content": "Create Repo Deploy Keys.",
+                "title": ""
+              },
+              "id": "CreateRepoDeployKey",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"title\": \"octocat@octomac\",\n  \"key\": \"ssh-rsa AAA...\"\n}\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "path": "/repos/{userName}/{repoName}/keys"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "UpdateRepoDeployKey",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/keys/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Repo Deploy Keys"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/keys/",
+                "content": "Edit Repo Deploy Keys.",
+                "title": ""
+              },
+              "id": "UpdateRepoDeployKey",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"title\": \"octocat@octomac\",\n  \"key\": \"ssh-rsa AAA...\"\n}\n\t\t\t\t\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "path": "/repos/{userName}/{repoName}/keys/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "DeleteRepoDeployKey",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/keys/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Repo Deploy Keys"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/keys/",
+                "content": "Delete Repo Deploy Keys.",
+                "title": ""
+              },
+              "id": "DeleteRepoDeployKey",
+              "name": "DELETE"
+            },
+            "path": "/repos/{userName}/{repoName}/keys/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListRepoWatchers",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/watchers"
+              },
+              "apigee:tags": {
+                "primary": "Repo Watching"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/watching/",
+                "content": "List watchers.",
+                "title": ""
+              },
+              "id": "ListRepoWatchers",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/watchers"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListReposWatched",
+              "apigee:example": {
+                "url": "/users/{userName}/watched"
+              },
+              "apigee:tags": {
+                "primary": "Repo Watching"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/watching/",
+                "content": "List repos being watched.",
+                "title": ""
+              },
+              "id": "ListReposWatched",
+              "name": "GET"
+            },
+            "path": "/users/{userName}/watched"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListRepoUserWatched",
+              "apigee:example": {
+                "url": "/user/watched"
+              },
+              "apigee:tags": {
+                "primary": "Repo Watching"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/watching/",
+                "content": "List repos being watched by the authenticated user.",
+                "title": ""
+              },
+              "id": "ListRepoUserWatched",
+              "name": "GET"
+            },
+            "path": "/user/watched"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CheckRepoWatching",
+              "apigee:example": {
+                "url": "/user/watched/{userName}/{repoName}"
+              },
+              "apigee:tags": {
+                "primary": "Repo Watching"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/watching/",
+                "content": "Check if you are watching a repo.",
+                "title": ""
+              },
+              "id": "CheckRepoWatching",
+              "name": "GET"
+            },
+            "path": "/user/watched/{userName}/{repoName}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "RepoWatch",
+              "apigee:example": {
+                "url": "/user/watched/{userName}/{repoName}"
+              },
+              "apigee:tags": {
+                "primary": "Repo Watching"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/watching/",
+                "content": "Watch a repo.",
+                "title": ""
+              },
+              "id": "RepoWatch",
+              "name": "PUT"
+            },
+            "path": "/user/watched/{userName}/{repoName}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "StopRepoWatch",
+              "apigee:example": {
+                "url": "/user/watched/{userName}/{repoName}"
+              },
+              "apigee:tags": {
+                "primary": "Repo Watching"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/watching/",
+                "content": "Stop watching a repo.",
+                "title": ""
+              },
+              "id": "StopRepoWatch",
+              "name": "DELETE"
+            },
+            "path": "/user/watched/{userName}/{repoName}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "ListRepoHooks",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/hooks"
+              },
+              "apigee:tags": {
+                "primary": "Repo Hooks"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/hooks/",
+                "content": "List Repo Hooks.",
+                "title": ""
+              },
+              "id": "ListRepoHooks",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/hooks"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "GetRepoHook",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/hooks/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Repo Hooks"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/hooks/",
+                "content": "Get single hook.",
+                "title": ""
+              },
+              "id": "GetRepoHook",
+              "name": "GET"
+            },
+            "path": "/repos/{userName}/{repoName}/hooks/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "CreateRepoHook",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/hooks"
+              },
+              "apigee:tags": {
+                "primary": "Repo Hooks"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/hooks/",
+                "content": "Create a hook.",
+                "title": ""
+              },
+              "id": "CreateRepoHook",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"name\": \"web\",\n  \"active\": true,\n  \"config\": {\n  \"url\": \"http://something.com/webhook\"\n  }\n}\n\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "path": "/repos/{userName}/{repoName}/hooks"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "UpdateRepoHook",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/hooks/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Repo Hooks"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/hooks/",
+                "content": "Edit a hook.",
+                "title": ""
+              },
+              "id": "UpdateRepoHook",
+              "name": "POST",
+              "request": {
+                "representation": [
+                  {
+                    "apigee:payload": "\n{\n  \"name\": \"campfire\",\n  \"active\": true,\n  \"config\": {\n  \"subdomain\": \"github\",\n  \"room\": \"Commits\",\n  \"token\": \"abc123\"\n  }\n}\n\t",
+                    "profile": false
+                  }
+                ]
+              }
+            },
+            "path": "/repos/{userName}/{repoName}/hooks/{id}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "TestRepoHook",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/hooks/{id}/test"
+              },
+              "apigee:tags": {
+                "primary": "Repo Hooks"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/hooks/",
+                "content": "Test a hook.",
+                "title": ""
+              },
+              "id": "TestRepoHook",
+              "name": "POST"
+            },
+            "path": "/repos/{userName}/{repoName}/hooks/{id}/test"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "DeleteRepoHook",
+              "apigee:example": {
+                "url": "/repos/{userName}/{repoName}/hooks/{id}"
+              },
+              "apigee:tags": {
+                "primary": "Repo Hooks"
+              },
+              "doc": {
+                "apigee:url": "http://developer.github.com/v3/repos/hooks/",
+                "content": "Delete a hook.",
+                "title": ""
+              },
+              "id": "DeleteRepoHook",
+              "name": "DELETE"
+            },
+            "path": "/repos/{userName}/{repoName}/hooks/{id}"
+          }
+        ]
+      }
+    ]
+  }
+}

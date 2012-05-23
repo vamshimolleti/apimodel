@@ -1,0 +1,7 @@
+# Application dependencies
+
+require:
+    - play
+    - play -> maven head
+    - com.apigee.apimodel.model -> model
+    

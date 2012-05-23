@@ -1,0 +1,15 @@
+{
+  "apiVersion": "0.1",
+  "apis": [
+    {
+      "description": "Operations about pets",
+      "path": "/pet.{format}"
+    },
+    {
+      "description": "Operations about user",
+      "path": "/user.{format}"
+    }
+  ],
+  "basePath": "http://petstore.swagger.wordnik.com/api",
+  "swaggerVersion": "1.1-SHAPSHOT.121026"
+}

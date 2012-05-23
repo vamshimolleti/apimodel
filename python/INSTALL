@@ -1,0 +1,12 @@
+We require the following:
+
+Python 2.7 (it might work on 2.6 but we haven't tested)
+PIP package manager:
+  http://pypi.python.org/pypi/pip
+
+Using PIP, install the following:
+
+PyYAML
+Paste (required by webapp2)
+WebOb (required by webapp2)
+webapp2

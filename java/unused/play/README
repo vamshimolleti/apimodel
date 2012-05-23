@@ -1,0 +1,6 @@
+This was an attempt to build the API using Play 1.2.4. Play is awesome
+for web apps and looks like a fun way to build APIs that meet its 
+patterns. Sadly, you can't handle arbitrary content (like a WADL file)
+in Play 1.2.4 that I could see. It looks like Play 2.0 is different but
+you have to learn Scala to use all the features, so for now I am
+abandoning Play.

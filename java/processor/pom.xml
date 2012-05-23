@@ -1,0 +1,33 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <artifactId>main</artifactId>
+    <groupId>com.apigee.apimodel</groupId>
+    <version>0.0.1-SNAPSHOT</version>
+    <relativePath>..</relativePath>
+  </parent>
+  <artifactId>processor</artifactId>
+  <name>apimodel-processor</name>
+  <description>Libraries for processing the API model at runtime</description>
+  <build>
+  </build>
+  <dependencies>
+    <dependency>
+      <groupId>com.apigee.apimodel</groupId>
+      <artifactId>model</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+    </dependency>
+    <dependency>
+      <groupId>com.apigee.apimodel</groupId>
+      <artifactId>wadl</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.apigee.apimodel</groupId>
+      <artifactId>apitext</artifactId>
+      <version>0.0.1-SNAPSHOT</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+</project>

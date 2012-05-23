@@ -1,0 +1,155 @@
+{
+  "apiVersion": "0.1",
+  "apis": [
+    {
+      "description": "Operations about user",
+      "operations": [
+        {
+          "httpMethod": "POST",
+          "nickname": "createUser",
+          "notes": "This can only be done by the logged in user.",
+          "parameters": [
+            {
+              "allowMultiple": false,
+              "dataType": "user",
+              "description": "Created user object",
+              "paramType": "body",
+              "required": true,
+              "valueTypeInternal": "com.wordnik.swagger.sample.model.User"
+            }
+          ],
+          "responseClass": "ok",
+          "responseTypeInternal": "ok",
+          "summary": "Create user"
+        }
+      ],
+      "path": "/user.{format}"
+    },
+    {
+      "description": "Operations about user",
+      "operations": [
+        {
+          "errorResponses": [
+            {
+              "code": 400,
+              "reason": "Invalid username supplied"
+            },
+            {
+              "code": 404,
+              "reason": "User not found"
+            }
+          ],
+          "httpMethod": "GET",
+          "nickname": "getUserByName",
+          "parameters": [
+            {
+              "allowMultiple": false,
+              "dataType": "string",
+              "description": "The name that needs to be fetched. Use user1 for testing.",
+              "name": "username",
+              "paramType": "path",
+              "required": true
+            }
+          ],
+          "responseClass": "user",
+          "responseTypeInternal": "com.wordnik.swagger.sample.model.User",
+          "summary": "Get user by user name"
+        }
+      ],
+      "path": "/user.{format}/{username}"
+    },
+    {
+      "description": "Operations about user",
+      "operations": [
+        {
+          "errorResponses": [
+            {
+              "code": 400,
+              "reason": "Invalid username and password combination"
+            }
+          ],
+          "httpMethod": "GET",
+          "nickname": "loginUser",
+          "parameters": [
+            {
+              "allowMultiple": false,
+              "dataType": "string",
+              "description": "The user name for login",
+              "name": "username",
+              "paramType": "query",
+              "required": true
+            },
+            {
+              "allowMultiple": false,
+              "dataType": "string",
+              "description": "The password for login in clear text",
+              "name": "password",
+              "paramType": "query",
+              "required": true
+            }
+          ],
+          "responseClass": "String",
+          "responseTypeInternal": "String",
+          "summary": "Logs user into the system"
+        }
+      ],
+      "path": "/user.{format}/login"
+    },
+    {
+      "description": "Operations about user",
+      "operations": [
+        {
+          "httpMethod": "GET",
+          "nickname": "logoutUser",
+          "responseClass": "ok",
+          "responseTypeInternal": "ok",
+          "summary": "Logs out current logged in user session"
+        }
+      ],
+      "path": "/user.{format}/logout"
+    }
+  ],
+  "basePath": "http://petstore.swagger.wordnik.com/api",
+  "models": {
+    "User": {
+      "id": "user",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "firstName": {
+          "type": "string"
+        },
+        "id": {
+          "type": "long"
+        },
+        "lastName": {
+          "type": "string"
+        },
+        "password": {
+          "type": "string"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "userStatus": {
+          "allowableValues": {
+            "valueType": "LIST",
+            "values": [
+              "1-registered",
+              "2-active",
+              "3-closed"
+            ]
+          },
+          "description": "User Status",
+          "type": "int"
+        },
+        "username": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "resourcePath": "/user",
+  "swaggerVersion": "1.1-SHAPSHOT.121026"
+}

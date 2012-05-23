@@ -1,0 +1,179 @@
+{
+  "apiVersion": "0.1",
+  "apis": [
+    {
+      "description": "Operations about pets",
+      "operations": [
+        {
+          "errorResponses": [
+            {
+              "code": 400,
+              "reason": "Invalid ID supplied"
+            },
+            {
+              "code": 404,
+              "reason": "Pet not found"
+            }
+          ],
+          "httpMethod": "GET",
+          "nickname": "getPetById",
+          "notes": "Returns a pet when ID < 10. ID > 10 or nonintegers will simulate API error conditions",
+          "parameters": [
+            {
+              "allowMultiple": false,
+              "allowableValues": {
+                "max": 10.0,
+                "min": 0.0,
+                "valueType": "RANGE"
+              },
+              "dataType": "string",
+              "description": "ID of pet that needs to be fetched",
+              "name": "petId",
+              "paramType": "path",
+              "required": true
+            }
+          ],
+          "responseClass": "pet",
+          "responseTypeInternal": "com.wordnik.swagger.sample.model.Pet",
+          "summary": "Find pet by ID"
+        }
+      ],
+      "path": "/pet.{format}/{petId}"
+    },
+    {
+      "description": "Operations about pets",
+      "operations": [
+        {
+          "errorResponses": [
+            {
+              "code": 400,
+              "reason": "Invalid status value"
+            }
+          ],
+          "httpMethod": "GET",
+          "nickname": "findPetsByStatus",
+          "notes": "Multiple status values can be provided with comma seperated strings",
+          "parameters": [
+            {
+              "allowMultiple": true,
+              "allowableValues": {
+                "valueType": "LIST",
+                "values": [
+                  "available",
+                  "pending",
+                  "sold"
+                ]
+              },
+              "dataType": "string",
+              "defaultValue": "available",
+              "description": "Status values that need to be considered for filter",
+              "name": "status",
+              "paramType": "query",
+              "required": true
+            }
+          ],
+          "responseClass": "List[pet]",
+          "responseTypeInternal": "com.wordnik.swagger.sample.model.Pet",
+          "summary": "Finds Pets by status"
+        }
+      ],
+      "path": "/pet.{format}/findByStatus"
+    },
+    {
+      "description": "Operations about pets",
+      "operations": [
+        {
+          "deprecated": true,
+          "errorResponses": [
+            {
+              "code": 400,
+              "reason": "Invalid tag value"
+            }
+          ],
+          "httpMethod": "GET",
+          "nickname": "findPetsByTags",
+          "notes": "Muliple tags can be provided with comma seperated strings. Use tag1, tag2, tag3 for testing.",
+          "parameters": [
+            {
+              "allowMultiple": true,
+              "dataType": "string",
+              "description": "Tags to filter by",
+              "name": "tags",
+              "paramType": "query",
+              "required": true
+            }
+          ],
+          "responseClass": "List[pet]",
+          "responseTypeInternal": "com.wordnik.swagger.sample.model.Pet",
+          "summary": "Finds Pets by tags"
+        }
+      ],
+      "path": "/pet.{format}/findByTags"
+    }
+  ],
+  "basePath": "http://petstore.swagger.wordnik.com/api",
+  "models": {
+    "Category": {
+      "id": "category",
+      "properties": {
+        "id": {
+          "type": "long"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "Pet": {
+      "id": "pet",
+      "properties": {
+        "category": {
+          "type": "category"
+        },
+        "id": {
+          "type": "long"
+        },
+        "name": {
+          "type": "string"
+        },
+        "photoUrls": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "status": {
+          "allowableValues": {
+            "valueType": "LIST",
+            "values": [
+              "available",
+              "pending",
+              "sold"
+            ]
+          },
+          "description": "pet status in the store",
+          "type": "string"
+        },
+        "tags": {
+          "items": {
+            "$ref": "tag"
+          },
+          "type": "array"
+        }
+      }
+    },
+    "Tag": {
+      "id": "tag",
+      "properties": {
+        "id": {
+          "type": "long"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "resourcePath": "/pet",
+  "swaggerVersion": "1.1-SHAPSHOT.121026"
+}

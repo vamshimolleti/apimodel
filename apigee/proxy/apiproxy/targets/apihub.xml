@@ -1,0 +1,5 @@
+<TargetEndpoint name="apihub">
+  <HTTPTargetConnection>
+    <URL>http://stage-apiapi.elasticbeanstalk.com</URL>
+  </HTTPTargetConnection>
+</TargetEndpoint>

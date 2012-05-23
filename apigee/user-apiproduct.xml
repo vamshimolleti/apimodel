@@ -1,0 +1,6 @@
+<ApiProduct name="User">
+  <ApiResources>
+    <ApiResource>/</ApiResource>
+  </ApiResources>
+  <DisplayName>User</DisplayName>
+</ApiProduct>

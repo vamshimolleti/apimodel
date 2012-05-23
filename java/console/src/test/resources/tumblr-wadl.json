@@ -1,0 +1,3403 @@
+{
+  "application": {
+    "endpoints": [
+      {
+        "base": "http://api.tumblr.com/v2/",
+        "resources": [
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "info",
+              "apigee:example": {
+                "url": "/blog/{base-hostname}/info"
+              },
+              "apigee:tags": {
+                "primary": "Blog"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#blog-info",
+                "content": "This method returns general information about the blog, such as the title, number of posts, and other high-level data.",
+                "title": "/info"
+              },
+              "id": "blog-info",
+              "name": "GET",
+              "responses": []
+            },
+            "params": [
+              {
+                "count": null,
+                "doc": {
+                  "apigee:url": "http://www.tumblr.com/docs/en/api/v2#hostname",
+                  "content": "The unique hostname of the blog."
+                },
+                "name": "base-hostname",
+                "required": true,
+                "style": "template",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/blog/{base-hostname}/info"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "false"
+              },
+              "apigee:displayName": "avatar",
+              "apigee:example": {
+                "url": "/blog/{base-hostname}/avatar/{size}"
+              },
+              "apigee:tags": {
+                "primary": "Blog"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#blog-avatar",
+                "content": "Retrieves a blog's avatar in one of 9 different sizes.",
+                "title": "/avatar"
+              },
+              "id": "blog-avatar",
+              "name": "GET",
+              "responses": []
+            },
+            "params": [
+              {
+                "count": null,
+                "doc": {
+                  "apigee:url": "http://www.tumblr.com/docs/en/api/v2#hostname",
+                  "content": "The unique hostname of the blog."
+                },
+                "name": "base-hostname",
+                "required": true,
+                "style": "template",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "default": "64",
+                "doc": {
+                  "apigee:url": "http://www.tumblr.com/docs/en/api/v2#blog-avatar",
+                  "content": "The size of the avatar (square, one value for both length and width). Must be one of the values: 16, 24, 30, 40, 48, 64, 96, 128, 512"
+                },
+                "name": "size",
+                "options": [
+                  {
+                    "value": "16"
+                  },
+                  {
+                    "value": "24"
+                  },
+                  {
+                    "value": "30"
+                  },
+                  {
+                    "value": "40"
+                  },
+                  {
+                    "value": "48"
+                  },
+                  {
+                    "value": "64"
+                  },
+                  {
+                    "value": "96"
+                  },
+                  {
+                    "value": "128"
+                  },
+                  {
+                    "value": "512"
+                  }
+                ],
+                "required": false,
+                "style": "template",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/blog/{base-hostname}/avatar/{size}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "followers",
+              "apigee:example": {
+                "url": "/blog/{base-hostname}/followers"
+              },
+              "apigee:tags": {
+                "primary": "Blog"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#blog-followers",
+                "content": "Retrieves a blog's followers.",
+                "title": "/followers"
+              },
+              "id": "blog-followers",
+              "name": "GET",
+              "params": [
+                {
+                  "count": null,
+                  "default": "20",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#blog-followers",
+                    "content": "The number of results to return: 1\u201320, inclusive"
+                  },
+                  "name": "limit",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:positiveInteger"
+                },
+                {
+                  "count": null,
+                  "default": "0",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#blog-followers",
+                    "content": "Result to start at."
+                  },
+                  "name": "offset",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:positiveInteger"
+                }
+              ],
+              "request": {
+                "params": [
+                  {
+                    "count": null,
+                    "default": "20",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#blog-followers",
+                      "content": "The number of results to return: 1\u201320, inclusive"
+                    },
+                    "name": "limit",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:positiveInteger"
+                  },
+                  {
+                    "count": null,
+                    "default": "0",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#blog-followers",
+                      "content": "Result to start at."
+                    },
+                    "name": "offset",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:positiveInteger"
+                  }
+                ]
+              },
+              "responses": []
+            },
+            "params": [
+              {
+                "count": null,
+                "doc": {
+                  "apigee:url": "http://www.tumblr.com/docs/en/api/v2#hostname",
+                  "content": "The unique hostname of the blog."
+                },
+                "name": "base-hostname",
+                "required": true,
+                "style": "template",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/blog/{base-hostname}/followers"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "posts",
+              "apigee:example": {
+                "url": "/blog/{base-hostname}/posts/{type}"
+              },
+              "apigee:tags": {
+                "primary": "Blog"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#posts",
+                "content": "Retrieves published posts.",
+                "title": "/posts"
+              },
+              "id": "posts",
+              "name": "GET",
+              "params": [
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#post-params",
+                    "content": "A specific post ID. Returns the single post specified or (if not found) a 404 error."
+                  },
+                  "name": "id",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:integer"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#post-params",
+                    "content": "Limits the response to posts with the specified tag"
+                  },
+                  "name": "tag",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "default": "20",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#post-params",
+                    "content": "The number of posts to return: 1\u201320, inclusive"
+                  },
+                  "name": "limit",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:positiveInteger"
+                },
+                {
+                  "count": null,
+                  "default": "0",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#post-params",
+                    "content": "Post number to start at."
+                  },
+                  "name": "offset",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:positiveInteger"
+                },
+                {
+                  "count": null,
+                  "default": "false",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#post-params",
+                    "content": "Indicates whether to return reblog information (specify true or false). Returns the various reblogged_ fields."
+                  },
+                  "name": "reblog_info",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:boolean"
+                },
+                {
+                  "count": null,
+                  "default": "false",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#post-params",
+                    "content": "Indicates whether to return notes information (specify true or false). Returns note count and note metadata."
+                  },
+                  "name": "notes_info",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:boolean"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#post-params",
+                    "content": "Specifies the post format to return, other than HTML."
+                  },
+                  "name": "format",
+                  "options": [
+                    {
+                      "doc": {
+                        "content": "Plain text, no HTML"
+                      },
+                      "value": "text"
+                    },
+                    {
+                      "doc": {
+                        "content": "As entered by the user (no post-processing); if the user writes in Markdown, the Markdown will be returned rather than HTML"
+                      },
+                      "value": "raw"
+                    }
+                  ],
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                }
+              ],
+              "request": {
+                "params": [
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#post-params",
+                      "content": "A specific post ID. Returns the single post specified or (if not found) a 404 error."
+                    },
+                    "name": "id",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:integer"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#post-params",
+                      "content": "Limits the response to posts with the specified tag"
+                    },
+                    "name": "tag",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "default": "20",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#post-params",
+                      "content": "The number of posts to return: 1\u201320, inclusive"
+                    },
+                    "name": "limit",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:positiveInteger"
+                  },
+                  {
+                    "count": null,
+                    "default": "0",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#post-params",
+                      "content": "Post number to start at."
+                    },
+                    "name": "offset",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:positiveInteger"
+                  },
+                  {
+                    "count": null,
+                    "default": "false",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#post-params",
+                      "content": "Indicates whether to return reblog information (specify true or false). Returns the various reblogged_ fields."
+                    },
+                    "name": "reblog_info",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:boolean"
+                  },
+                  {
+                    "count": null,
+                    "default": "false",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#post-params",
+                      "content": "Indicates whether to return notes information (specify true or false). Returns note count and note metadata."
+                    },
+                    "name": "notes_info",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:boolean"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#post-params",
+                      "content": "Specifies the post format to return, other than HTML."
+                    },
+                    "name": "format",
+                    "options": [
+                      {
+                        "doc": {
+                          "content": "Plain text, no HTML"
+                        },
+                        "value": "text"
+                      },
+                      {
+                        "doc": {
+                          "content": "As entered by the user (no post-processing); if the user writes in Markdown, the Markdown will be returned rather than HTML"
+                        },
+                        "value": "raw"
+                      }
+                    ],
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  }
+                ]
+              },
+              "responses": []
+            },
+            "params": [
+              {
+                "count": null,
+                "doc": {
+                  "apigee:url": "http://www.tumblr.com/docs/en/api/v2#hostname",
+                  "content": "The unique hostname of the blog."
+                },
+                "name": "base-hostname",
+                "required": true,
+                "style": "template",
+                "type": "xsd:string"
+              },
+              {
+                "count": null,
+                "doc": {
+                  "apigee:url": "http://www.tumblr.com/docs/en/api/v2#posts",
+                  "content": "The type of post to return. Specify one of the following: text, quote, link, answer, video, audio, photo. By default, all types are returned"
+                },
+                "name": "type",
+                "options": [
+                  {
+                    "value": "text"
+                  },
+                  {
+                    "value": "quote"
+                  },
+                  {
+                    "value": "link"
+                  },
+                  {
+                    "value": "answer"
+                  },
+                  {
+                    "value": "video"
+                  },
+                  {
+                    "value": "audio"
+                  },
+                  {
+                    "value": "photo"
+                  }
+                ],
+                "required": false,
+                "style": "template",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/blog/{base-hostname}/posts/{type}"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "posts/queue",
+              "apigee:example": {
+                "url": "/blog/{base-hostname}/posts/queue"
+              },
+              "apigee:tags": {
+                "primary": "Blog"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#blog-queue",
+                "content": "Retrieves queued posts.",
+                "title": "/posts/queue"
+              },
+              "id": "blog-queue",
+              "name": "GET",
+              "responses": []
+            },
+            "params": [
+              {
+                "count": null,
+                "doc": {
+                  "apigee:url": "http://www.tumblr.com/docs/en/api/v2#hostname",
+                  "content": "The unique hostname of the blog."
+                },
+                "name": "base-hostname",
+                "required": true,
+                "style": "template",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/blog/{base-hostname}/posts/queue"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "posts/draft",
+              "apigee:example": {
+                "url": "/blog/{base-hostname}/posts/drafts"
+              },
+              "apigee:tags": {
+                "primary": "Blog"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#blog-drafts",
+                "content": "Retrieves draft posts.",
+                "title": "/posts/draft"
+              },
+              "id": "blog-drafts",
+              "name": "GET",
+              "responses": []
+            },
+            "params": [
+              {
+                "count": null,
+                "doc": {
+                  "apigee:url": "http://www.tumblr.com/docs/en/api/v2#hostname",
+                  "content": "The unique hostname of the blog."
+                },
+                "name": "base-hostname",
+                "required": true,
+                "style": "template",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/blog/{base-hostname}/posts/draft"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "posts/submission",
+              "apigee:example": {
+                "url": "/blog/{base-hostname}/posts/submission"
+              },
+              "apigee:tags": {
+                "primary": "Blog"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#blog-submissions",
+                "content": "Retrieves submission posts.",
+                "title": "/posts/submission"
+              },
+              "id": "blog-submissions",
+              "name": "GET",
+              "responses": []
+            },
+            "params": [
+              {
+                "count": null,
+                "doc": {
+                  "apigee:url": "http://www.tumblr.com/docs/en/api/v2#hostname",
+                  "content": "The unique hostname of the blog."
+                },
+                "name": "base-hostname",
+                "required": true,
+                "style": "template",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/blog/{base-hostname}/posts/submission"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "post (Text)",
+              "apigee:example": {
+                "url": "/blog/{base-hostname}/post"
+              },
+              "apigee:tags": {
+                "primary": "Blog"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#posting",
+                "content": "Creates a new text blog post.",
+                "title": "/post"
+              },
+              "id": "post-text",
+              "name": "POST",
+              "params": [
+                {
+                  "count": null,
+                  "default": "text",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "The type of post to create."
+                  },
+                  "name": "type",
+                  "options": [
+                    {
+                      "value": "text"
+                    },
+                    {
+                      "value": "photo"
+                    },
+                    {
+                      "value": "quote"
+                    },
+                    {
+                      "value": "link"
+                    },
+                    {
+                      "value": "chat"
+                    },
+                    {
+                      "value": "audio"
+                    },
+                    {
+                      "value": "video"
+                    }
+                  ],
+                  "required": true,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Comma-separated tags for this post."
+                  },
+                  "name": "tags",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+                  },
+                  "name": "tweet",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+                  },
+                  "name": "date",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "default": "false",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Indicates whether the post uses markdown syntax."
+                  },
+                  "name": "markdown",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:boolean"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ptext-posts",
+                    "content": "The optional title of the post. HTML entities must be escaped."
+                  },
+                  "name": "title",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ptext-posts",
+                    "content": "The full post body, HTML allowed."
+                  },
+                  "name": "body",
+                  "required": true,
+                  "style": "query",
+                  "type": "xsd:string"
+                }
+              ],
+              "request": {
+                "params": [
+                  {
+                    "count": null,
+                    "default": "text",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "The type of post to create."
+                    },
+                    "name": "type",
+                    "options": [
+                      {
+                        "value": "text"
+                      },
+                      {
+                        "value": "photo"
+                      },
+                      {
+                        "value": "quote"
+                      },
+                      {
+                        "value": "link"
+                      },
+                      {
+                        "value": "chat"
+                      },
+                      {
+                        "value": "audio"
+                      },
+                      {
+                        "value": "video"
+                      }
+                    ],
+                    "required": true,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Comma-separated tags for this post."
+                    },
+                    "name": "tags",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+                    },
+                    "name": "tweet",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+                    },
+                    "name": "date",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "default": "false",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Indicates whether the post uses markdown syntax."
+                    },
+                    "name": "markdown",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:boolean"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ptext-posts",
+                      "content": "The optional title of the post. HTML entities must be escaped."
+                    },
+                    "name": "title",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ptext-posts",
+                      "content": "The full post body, HTML allowed."
+                    },
+                    "name": "body",
+                    "required": true,
+                    "style": "query",
+                    "type": "xsd:string"
+                  }
+                ]
+              },
+              "responses": []
+            },
+            "params": [
+              {
+                "count": null,
+                "doc": {
+                  "apigee:url": "http://www.tumblr.com/docs/en/api/v2#hostname",
+                  "content": "The unique hostname of the blog."
+                },
+                "name": "base-hostname",
+                "required": true,
+                "style": "template",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/blog/{base-hostname}/post"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "post (Photo)",
+              "apigee:example": {
+                "url": "/blog/{base-hostname}/post"
+              },
+              "apigee:tags": {
+                "primary": "Blog"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#posting",
+                "content": "Creates a new photo blog post.",
+                "title": "/post"
+              },
+              "id": "post-photo",
+              "name": "POST",
+              "params": [
+                {
+                  "count": null,
+                  "default": "photo",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "The type of post to create."
+                  },
+                  "name": "type",
+                  "options": [
+                    {
+                      "value": "text"
+                    },
+                    {
+                      "value": "photo"
+                    },
+                    {
+                      "value": "quote"
+                    },
+                    {
+                      "value": "link"
+                    },
+                    {
+                      "value": "chat"
+                    },
+                    {
+                      "value": "audio"
+                    },
+                    {
+                      "value": "video"
+                    }
+                  ],
+                  "required": true,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Comma-separated tags for this post."
+                  },
+                  "name": "tags",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+                  },
+                  "name": "tweet",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+                  },
+                  "name": "date",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "default": "false",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Indicates whether the post uses markdown syntax."
+                  },
+                  "name": "markdown",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:boolean"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#pphoto-posts",
+                    "content": "The user-supplied caption. HTML allowed."
+                  },
+                  "name": "caption",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#pphoto-posts",
+                    "content": "The \"click-through URL\" for the photo."
+                  },
+                  "name": "link",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:anyURI"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#pphoto-posts",
+                    "content": "The photo source URL. Either the source or data parameter is required."
+                  },
+                  "name": "source",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:anyURI"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#pphoto-posts",
+                    "content": "One or more image files (as an array) (submit multiple times to create a slide show) Either the source or data parameter is required."
+                  },
+                  "name": "data",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                }
+              ],
+              "request": {
+                "params": [
+                  {
+                    "count": null,
+                    "default": "photo",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "The type of post to create."
+                    },
+                    "name": "type",
+                    "options": [
+                      {
+                        "value": "text"
+                      },
+                      {
+                        "value": "photo"
+                      },
+                      {
+                        "value": "quote"
+                      },
+                      {
+                        "value": "link"
+                      },
+                      {
+                        "value": "chat"
+                      },
+                      {
+                        "value": "audio"
+                      },
+                      {
+                        "value": "video"
+                      }
+                    ],
+                    "required": true,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Comma-separated tags for this post."
+                    },
+                    "name": "tags",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+                    },
+                    "name": "tweet",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+                    },
+                    "name": "date",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "default": "false",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Indicates whether the post uses markdown syntax."
+                    },
+                    "name": "markdown",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:boolean"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#pphoto-posts",
+                      "content": "The user-supplied caption. HTML allowed."
+                    },
+                    "name": "caption",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#pphoto-posts",
+                      "content": "The \"click-through URL\" for the photo."
+                    },
+                    "name": "link",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:anyURI"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#pphoto-posts",
+                      "content": "The photo source URL. Either the source or data parameter is required."
+                    },
+                    "name": "source",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:anyURI"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#pphoto-posts",
+                      "content": "One or more image files (as an array) (submit multiple times to create a slide show) Either the source or data parameter is required."
+                    },
+                    "name": "data",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  }
+                ]
+              },
+              "responses": []
+            },
+            "params": [
+              {
+                "count": null,
+                "doc": {
+                  "apigee:url": "http://www.tumblr.com/docs/en/api/v2#hostname",
+                  "content": "The unique hostname of the blog."
+                },
+                "name": "base-hostname",
+                "required": true,
+                "style": "template",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/blog/{base-hostname}/post"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "post (Quote)",
+              "apigee:example": {
+                "url": "/blog/{base-hostname}/post"
+              },
+              "apigee:tags": {
+                "primary": "Blog"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#posting",
+                "content": "Creates a new quote blog post.",
+                "title": "/post"
+              },
+              "id": "post-quote",
+              "name": "POST",
+              "params": [
+                {
+                  "count": null,
+                  "default": "quote",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "The type of post to create."
+                  },
+                  "name": "type",
+                  "options": [
+                    {
+                      "value": "text"
+                    },
+                    {
+                      "value": "photo"
+                    },
+                    {
+                      "value": "quote"
+                    },
+                    {
+                      "value": "link"
+                    },
+                    {
+                      "value": "chat"
+                    },
+                    {
+                      "value": "audio"
+                    },
+                    {
+                      "value": "video"
+                    }
+                  ],
+                  "required": true,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Comma-separated tags for this post."
+                  },
+                  "name": "tags",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+                  },
+                  "name": "tweet",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+                  },
+                  "name": "date",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "default": "false",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Indicates whether the post uses markdown syntax."
+                  },
+                  "name": "markdown",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:boolean"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#pquote-posts",
+                    "content": "The full text of the quote. HTML entities must be escaped."
+                  },
+                  "name": "quote",
+                  "required": true,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#pquote-posts",
+                    "content": "Cited source. HTML allowed."
+                  },
+                  "name": "source",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                }
+              ],
+              "request": {
+                "params": [
+                  {
+                    "count": null,
+                    "default": "quote",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "The type of post to create."
+                    },
+                    "name": "type",
+                    "options": [
+                      {
+                        "value": "text"
+                      },
+                      {
+                        "value": "photo"
+                      },
+                      {
+                        "value": "quote"
+                      },
+                      {
+                        "value": "link"
+                      },
+                      {
+                        "value": "chat"
+                      },
+                      {
+                        "value": "audio"
+                      },
+                      {
+                        "value": "video"
+                      }
+                    ],
+                    "required": true,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Comma-separated tags for this post."
+                    },
+                    "name": "tags",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+                    },
+                    "name": "tweet",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+                    },
+                    "name": "date",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "default": "false",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Indicates whether the post uses markdown syntax."
+                    },
+                    "name": "markdown",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:boolean"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#pquote-posts",
+                      "content": "The full text of the quote. HTML entities must be escaped."
+                    },
+                    "name": "quote",
+                    "required": true,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#pquote-posts",
+                      "content": "Cited source. HTML allowed."
+                    },
+                    "name": "source",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  }
+                ]
+              },
+              "responses": []
+            },
+            "params": [
+              {
+                "count": null,
+                "doc": {
+                  "apigee:url": "http://www.tumblr.com/docs/en/api/v2#hostname",
+                  "content": "The unique hostname of the blog."
+                },
+                "name": "base-hostname",
+                "required": true,
+                "style": "template",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/blog/{base-hostname}/post"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "post (Link)",
+              "apigee:example": {
+                "url": "/blog/{base-hostname}/post"
+              },
+              "apigee:tags": {
+                "primary": "Blog"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#posting",
+                "content": "Creates a new link blog post.",
+                "title": "/post"
+              },
+              "id": "post-link",
+              "name": "POST",
+              "params": [
+                {
+                  "count": null,
+                  "default": "link",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "The type of post to create."
+                  },
+                  "name": "type",
+                  "options": [
+                    {
+                      "value": "text"
+                    },
+                    {
+                      "value": "photo"
+                    },
+                    {
+                      "value": "quote"
+                    },
+                    {
+                      "value": "link"
+                    },
+                    {
+                      "value": "chat"
+                    },
+                    {
+                      "value": "audio"
+                    },
+                    {
+                      "value": "video"
+                    }
+                  ],
+                  "required": true,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Comma-separated tags for this post."
+                  },
+                  "name": "tags",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+                  },
+                  "name": "tweet",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+                  },
+                  "name": "date",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "default": "false",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Indicates whether the post uses markdown syntax."
+                  },
+                  "name": "markdown",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:boolean"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#plink-posts",
+                    "content": "The title of the page the link points to. HTML entities should be escaped."
+                  },
+                  "name": "title",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#plink-posts",
+                    "content": "The link."
+                  },
+                  "name": "url",
+                  "required": true,
+                  "style": "query",
+                  "type": "xsd:anyURI"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#plink-posts",
+                    "content": "A user-supplied description. HTML allowed."
+                  },
+                  "name": "description",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                }
+              ],
+              "request": {
+                "params": [
+                  {
+                    "count": null,
+                    "default": "link",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "The type of post to create."
+                    },
+                    "name": "type",
+                    "options": [
+                      {
+                        "value": "text"
+                      },
+                      {
+                        "value": "photo"
+                      },
+                      {
+                        "value": "quote"
+                      },
+                      {
+                        "value": "link"
+                      },
+                      {
+                        "value": "chat"
+                      },
+                      {
+                        "value": "audio"
+                      },
+                      {
+                        "value": "video"
+                      }
+                    ],
+                    "required": true,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Comma-separated tags for this post."
+                    },
+                    "name": "tags",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+                    },
+                    "name": "tweet",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+                    },
+                    "name": "date",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "default": "false",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Indicates whether the post uses markdown syntax."
+                    },
+                    "name": "markdown",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:boolean"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#plink-posts",
+                      "content": "The title of the page the link points to. HTML entities should be escaped."
+                    },
+                    "name": "title",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#plink-posts",
+                      "content": "The link."
+                    },
+                    "name": "url",
+                    "required": true,
+                    "style": "query",
+                    "type": "xsd:anyURI"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#plink-posts",
+                      "content": "A user-supplied description. HTML allowed."
+                    },
+                    "name": "description",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  }
+                ]
+              },
+              "responses": []
+            },
+            "params": [
+              {
+                "count": null,
+                "doc": {
+                  "apigee:url": "http://www.tumblr.com/docs/en/api/v2#hostname",
+                  "content": "The unique hostname of the blog."
+                },
+                "name": "base-hostname",
+                "required": true,
+                "style": "template",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/blog/{base-hostname}/post"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "post (Chat)",
+              "apigee:example": {
+                "url": "/blog/{base-hostname}/post"
+              },
+              "apigee:tags": {
+                "primary": "Blog"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#posting",
+                "content": "Creates a new chat blog post.",
+                "title": "/post"
+              },
+              "id": "post-chat",
+              "name": "POST",
+              "params": [
+                {
+                  "count": null,
+                  "default": "chat",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "The type of post to create."
+                  },
+                  "name": "type",
+                  "options": [
+                    {
+                      "value": "text"
+                    },
+                    {
+                      "value": "photo"
+                    },
+                    {
+                      "value": "quote"
+                    },
+                    {
+                      "value": "link"
+                    },
+                    {
+                      "value": "chat"
+                    },
+                    {
+                      "value": "audio"
+                    },
+                    {
+                      "value": "video"
+                    }
+                  ],
+                  "required": true,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Comma-separated tags for this post."
+                  },
+                  "name": "tags",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+                  },
+                  "name": "tweet",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+                  },
+                  "name": "date",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "default": "false",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Indicates whether the post uses markdown syntax."
+                  },
+                  "name": "markdown",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:boolean"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-convo",
+                    "content": "The title of the chat."
+                  },
+                  "name": "title",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-convo",
+                    "content": "The text of the conversation/chat, with dialogue labels (no HTML)"
+                  },
+                  "name": "conversation",
+                  "required": true,
+                  "style": "query",
+                  "type": "xsd:string"
+                }
+              ],
+              "request": {
+                "params": [
+                  {
+                    "count": null,
+                    "default": "chat",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "The type of post to create."
+                    },
+                    "name": "type",
+                    "options": [
+                      {
+                        "value": "text"
+                      },
+                      {
+                        "value": "photo"
+                      },
+                      {
+                        "value": "quote"
+                      },
+                      {
+                        "value": "link"
+                      },
+                      {
+                        "value": "chat"
+                      },
+                      {
+                        "value": "audio"
+                      },
+                      {
+                        "value": "video"
+                      }
+                    ],
+                    "required": true,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Comma-separated tags for this post."
+                    },
+                    "name": "tags",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+                    },
+                    "name": "tweet",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+                    },
+                    "name": "date",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "default": "false",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Indicates whether the post uses markdown syntax."
+                    },
+                    "name": "markdown",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:boolean"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-convo",
+                      "content": "The title of the chat."
+                    },
+                    "name": "title",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-convo",
+                      "content": "The text of the conversation/chat, with dialogue labels (no HTML)"
+                    },
+                    "name": "conversation",
+                    "required": true,
+                    "style": "query",
+                    "type": "xsd:string"
+                  }
+                ]
+              },
+              "responses": []
+            },
+            "params": [
+              {
+                "count": null,
+                "doc": {
+                  "apigee:url": "http://www.tumblr.com/docs/en/api/v2#hostname",
+                  "content": "The unique hostname of the blog."
+                },
+                "name": "base-hostname",
+                "required": true,
+                "style": "template",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/blog/{base-hostname}/post"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "post (Audio)",
+              "apigee:example": {
+                "url": "/blog/{base-hostname}/post"
+              },
+              "apigee:tags": {
+                "primary": "Blog"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#posting",
+                "content": "Creates a new audio blog post.",
+                "title": "/post"
+              },
+              "id": "post-audio",
+              "name": "POST",
+              "params": [
+                {
+                  "count": null,
+                  "default": "audio",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "The type of post to create."
+                  },
+                  "name": "type",
+                  "options": [
+                    {
+                      "value": "text"
+                    },
+                    {
+                      "value": "photo"
+                    },
+                    {
+                      "value": "quote"
+                    },
+                    {
+                      "value": "link"
+                    },
+                    {
+                      "value": "chat"
+                    },
+                    {
+                      "value": "audio"
+                    },
+                    {
+                      "value": "video"
+                    }
+                  ],
+                  "required": true,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Comma-separated tags for this post."
+                  },
+                  "name": "tags",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+                  },
+                  "name": "tweet",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+                  },
+                  "name": "date",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "default": "false",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Indicates whether the post uses markdown syntax."
+                  },
+                  "name": "markdown",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:boolean"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#paudio-posts",
+                    "content": "The user-supplied caption."
+                  },
+                  "name": "caption",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#paudio-posts",
+                    "content": "The URL of the site that hosts the audio file (not tumblr). Either the external_url or data parameter is required."
+                  },
+                  "name": "external_url",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:anyURI"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#paudio-posts",
+                    "content": "The audio file, as URL-encoded binary. Either the external_url or data parameter is required."
+                  },
+                  "name": "data",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                }
+              ],
+              "request": {
+                "params": [
+                  {
+                    "count": null,
+                    "default": "audio",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "The type of post to create."
+                    },
+                    "name": "type",
+                    "options": [
+                      {
+                        "value": "text"
+                      },
+                      {
+                        "value": "photo"
+                      },
+                      {
+                        "value": "quote"
+                      },
+                      {
+                        "value": "link"
+                      },
+                      {
+                        "value": "chat"
+                      },
+                      {
+                        "value": "audio"
+                      },
+                      {
+                        "value": "video"
+                      }
+                    ],
+                    "required": true,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Comma-separated tags for this post."
+                    },
+                    "name": "tags",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+                    },
+                    "name": "tweet",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+                    },
+                    "name": "date",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "default": "false",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Indicates whether the post uses markdown syntax."
+                    },
+                    "name": "markdown",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:boolean"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#paudio-posts",
+                      "content": "The user-supplied caption."
+                    },
+                    "name": "caption",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#paudio-posts",
+                      "content": "The URL of the site that hosts the audio file (not tumblr). Either the external_url or data parameter is required."
+                    },
+                    "name": "external_url",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:anyURI"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#paudio-posts",
+                      "content": "The audio file, as URL-encoded binary. Either the external_url or data parameter is required."
+                    },
+                    "name": "data",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  }
+                ]
+              },
+              "responses": []
+            },
+            "params": [
+              {
+                "count": null,
+                "doc": {
+                  "apigee:url": "http://www.tumblr.com/docs/en/api/v2#hostname",
+                  "content": "The unique hostname of the blog."
+                },
+                "name": "base-hostname",
+                "required": true,
+                "style": "template",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/blog/{base-hostname}/post"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "post (Video)",
+              "apigee:example": {
+                "url": "/blog/{base-hostname}/post"
+              },
+              "apigee:tags": {
+                "primary": "Blog"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#posting",
+                "content": "Creates a new video blog post.",
+                "title": "/post"
+              },
+              "id": "post-video",
+              "name": "POST",
+              "params": [
+                {
+                  "count": null,
+                  "default": "video",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "The type of post to create."
+                  },
+                  "name": "type",
+                  "options": [
+                    {
+                      "value": "text"
+                    },
+                    {
+                      "value": "photo"
+                    },
+                    {
+                      "value": "quote"
+                    },
+                    {
+                      "value": "link"
+                    },
+                    {
+                      "value": "chat"
+                    },
+                    {
+                      "value": "audio"
+                    },
+                    {
+                      "value": "video"
+                    }
+                  ],
+                  "required": true,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Comma-separated tags for this post."
+                  },
+                  "name": "tags",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+                  },
+                  "name": "tweet",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+                  },
+                  "name": "date",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "default": "false",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Indicates whether the post uses markdown syntax."
+                  },
+                  "name": "markdown",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:boolean"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#pvideo-posts",
+                    "content": "The user-supplied caption."
+                  },
+                  "name": "caption",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#pvideo-posts",
+                    "content": "HTML embed code for the video. Either the embed or data parameter is required."
+                  },
+                  "name": "embed",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#pvideo-posts",
+                    "content": "A video file, as URL-encoded binary. Either the embed or data parameter is required."
+                  },
+                  "name": "data",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                }
+              ],
+              "request": {
+                "params": [
+                  {
+                    "count": null,
+                    "default": "video",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "The type of post to create."
+                    },
+                    "name": "type",
+                    "options": [
+                      {
+                        "value": "text"
+                      },
+                      {
+                        "value": "photo"
+                      },
+                      {
+                        "value": "quote"
+                      },
+                      {
+                        "value": "link"
+                      },
+                      {
+                        "value": "chat"
+                      },
+                      {
+                        "value": "audio"
+                      },
+                      {
+                        "value": "video"
+                      }
+                    ],
+                    "required": true,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Comma-separated tags for this post."
+                    },
+                    "name": "tags",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+                    },
+                    "name": "tweet",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+                    },
+                    "name": "date",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "default": "false",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Indicates whether the post uses markdown syntax."
+                    },
+                    "name": "markdown",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:boolean"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#pvideo-posts",
+                      "content": "The user-supplied caption."
+                    },
+                    "name": "caption",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#pvideo-posts",
+                      "content": "HTML embed code for the video. Either the embed or data parameter is required."
+                    },
+                    "name": "embed",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#pvideo-posts",
+                      "content": "A video file, as URL-encoded binary. Either the embed or data parameter is required."
+                    },
+                    "name": "data",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  }
+                ]
+              },
+              "responses": []
+            },
+            "params": [
+              {
+                "count": null,
+                "doc": {
+                  "apigee:url": "http://www.tumblr.com/docs/en/api/v2#hostname",
+                  "content": "The unique hostname of the blog."
+                },
+                "name": "base-hostname",
+                "required": true,
+                "style": "template",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/blog/{base-hostname}/post"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "post/edit",
+              "apigee:example": {
+                "url": "/blog/{base-hostname}/post/edit"
+              },
+              "apigee:tags": {
+                "primary": "Blog"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#editing",
+                "content": "Edits a blog post.",
+                "title": "/post/edit"
+              },
+              "id": "post-edit",
+              "name": "POST",
+              "params": [
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "The post type."
+                  },
+                  "name": "type",
+                  "options": [
+                    {
+                      "value": "text"
+                    },
+                    {
+                      "value": "photo"
+                    },
+                    {
+                      "value": "quote"
+                    },
+                    {
+                      "value": "link"
+                    },
+                    {
+                      "value": "chat"
+                    },
+                    {
+                      "value": "audio"
+                    },
+                    {
+                      "value": "video"
+                    }
+                  ],
+                  "required": true,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Comma-separated tags for this post."
+                  },
+                  "name": "tags",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+                  },
+                  "name": "tweet",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+                  },
+                  "name": "date",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "default": "false",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Indicates whether the post uses markdown syntax."
+                  },
+                  "name": "markdown",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:boolean"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#editing",
+                    "content": "The ID of the post to edit."
+                  },
+                  "name": "id",
+                  "required": true,
+                  "style": "query",
+                  "type": "xsd:integer"
+                }
+              ],
+              "request": {
+                "params": [
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "The post type."
+                    },
+                    "name": "type",
+                    "options": [
+                      {
+                        "value": "text"
+                      },
+                      {
+                        "value": "photo"
+                      },
+                      {
+                        "value": "quote"
+                      },
+                      {
+                        "value": "link"
+                      },
+                      {
+                        "value": "chat"
+                      },
+                      {
+                        "value": "audio"
+                      },
+                      {
+                        "value": "video"
+                      }
+                    ],
+                    "required": true,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Comma-separated tags for this post."
+                    },
+                    "name": "tags",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+                    },
+                    "name": "tweet",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+                    },
+                    "name": "date",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "default": "false",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Indicates whether the post uses markdown syntax."
+                    },
+                    "name": "markdown",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:boolean"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#editing",
+                      "content": "The ID of the post to edit."
+                    },
+                    "name": "id",
+                    "required": true,
+                    "style": "query",
+                    "type": "xsd:integer"
+                  }
+                ]
+              },
+              "responses": []
+            },
+            "params": [
+              {
+                "count": null,
+                "doc": {
+                  "apigee:url": "http://www.tumblr.com/docs/en/api/v2#hostname",
+                  "content": "The unique hostname of the blog."
+                },
+                "name": "base-hostname",
+                "required": true,
+                "style": "template",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/blog/{base-hostname}/post/edit"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "post/reblog",
+              "apigee:example": {
+                "url": "/blog/{base-hostname}/post/reblog"
+              },
+              "apigee:tags": {
+                "primary": "Blog"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#reblogging",
+                "content": "Reblogs a post.",
+                "title": "/post/reblog"
+              },
+              "id": "post-reblog",
+              "name": "POST",
+              "params": [
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "The post type."
+                  },
+                  "name": "type",
+                  "options": [
+                    {
+                      "value": "text"
+                    },
+                    {
+                      "value": "photo"
+                    },
+                    {
+                      "value": "quote"
+                    },
+                    {
+                      "value": "link"
+                    },
+                    {
+                      "value": "chat"
+                    },
+                    {
+                      "value": "audio"
+                    },
+                    {
+                      "value": "video"
+                    }
+                  ],
+                  "required": true,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Comma-separated tags for this post."
+                  },
+                  "name": "tags",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+                  },
+                  "name": "tweet",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+                  },
+                  "name": "date",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "default": "false",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                    "content": "Indicates whether the post uses markdown syntax."
+                  },
+                  "name": "markdown",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:boolean"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#reblogging",
+                    "content": "The ID of the reblogged post on tumblelog. Default is the next available ID."
+                  },
+                  "name": "id",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:integer"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#reblogging",
+                    "content": "The reblog key for the reblogged post \u2013 get the reblog key with a /posts request"
+                  },
+                  "name": "reblog_key",
+                  "required": true,
+                  "style": "query",
+                  "type": "xsd:integer"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#reblogging",
+                    "content": "A comment added to the reblogged post."
+                  },
+                  "name": "comment",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                }
+              ],
+              "request": {
+                "params": [
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "The post type."
+                    },
+                    "name": "type",
+                    "options": [
+                      {
+                        "value": "text"
+                      },
+                      {
+                        "value": "photo"
+                      },
+                      {
+                        "value": "quote"
+                      },
+                      {
+                        "value": "link"
+                      },
+                      {
+                        "value": "chat"
+                      },
+                      {
+                        "value": "audio"
+                      },
+                      {
+                        "value": "video"
+                      }
+                    ],
+                    "required": true,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Comma-separated tags for this post."
+                    },
+                    "name": "tags",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Manages the autotweet (if enabled) for this post: set to off for no tweet, or enter text to override the default tweet"
+                    },
+                    "name": "tweet",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "The GMT date and time of the post, as a string. Default is the date and time of the POST request."
+                    },
+                    "name": "date",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "default": "false",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#ppt-all",
+                      "content": "Indicates whether the post uses markdown syntax."
+                    },
+                    "name": "markdown",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:boolean"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#reblogging",
+                      "content": "The ID of the reblogged post on tumblelog. Default is the next available ID."
+                    },
+                    "name": "id",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:integer"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#reblogging",
+                      "content": "The reblog key for the reblogged post \u2013 get the reblog key with a /posts request"
+                    },
+                    "name": "reblog_key",
+                    "required": true,
+                    "style": "query",
+                    "type": "xsd:integer"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#reblogging",
+                      "content": "A comment added to the reblogged post."
+                    },
+                    "name": "comment",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  }
+                ]
+              },
+              "responses": []
+            },
+            "params": [
+              {
+                "count": null,
+                "doc": {
+                  "apigee:url": "http://www.tumblr.com/docs/en/api/v2#hostname",
+                  "content": "The unique hostname of the blog."
+                },
+                "name": "base-hostname",
+                "required": true,
+                "style": "template",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/blog/{base-hostname}/post/reblog"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "post/delete",
+              "apigee:example": {
+                "url": "/blog/{base-hostname}/post/delete"
+              },
+              "apigee:tags": {
+                "primary": "Blog"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#deleting-posts",
+                "content": "Deletes a post.",
+                "title": "/post/delete"
+              },
+              "id": "post-delete",
+              "name": "POST",
+              "params": [
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#deleting-posts",
+                    "content": "The ID of the post to delete."
+                  },
+                  "name": "id",
+                  "required": true,
+                  "style": "query",
+                  "type": "xsd:integer"
+                }
+              ],
+              "request": {
+                "params": [
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#deleting-posts",
+                      "content": "The ID of the post to delete."
+                    },
+                    "name": "id",
+                    "required": true,
+                    "style": "query",
+                    "type": "xsd:integer"
+                  }
+                ]
+              },
+              "responses": []
+            },
+            "params": [
+              {
+                "count": null,
+                "doc": {
+                  "apigee:url": "http://www.tumblr.com/docs/en/api/v2#hostname",
+                  "content": "The unique hostname of the blog."
+                },
+                "name": "base-hostname",
+                "required": true,
+                "style": "template",
+                "type": "xsd:string"
+              }
+            ],
+            "path": "/blog/{base-hostname}/post/delete"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "dashboard",
+              "apigee:example": {
+                "url": "/user/dashboard"
+              },
+              "apigee:tags": {
+                "primary": "User"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-ug-dashboard",
+                "content": "Use this method to retrieve the dashboard that matches the OAuth credentials submitted with the request.",
+                "title": "/user/dashboard"
+              },
+              "id": "user-dashboard",
+              "name": "GET",
+              "params": [
+                {
+                  "count": null,
+                  "default": "20",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-ug-dashboard",
+                    "content": "The number of results to return: 1\u201320, inclusive"
+                  },
+                  "name": "limit",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:positiveInteger"
+                },
+                {
+                  "count": null,
+                  "default": "0",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-ug-dashboard",
+                    "content": "Post number to start at."
+                  },
+                  "name": "offset",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:positiveInteger"
+                },
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-ug-dashboard",
+                    "content": "The type of post to return."
+                  },
+                  "name": "type",
+                  "options": [
+                    {
+                      "value": "text"
+                    },
+                    {
+                      "value": "photo"
+                    },
+                    {
+                      "value": "quote"
+                    },
+                    {
+                      "value": "link"
+                    },
+                    {
+                      "value": "chat"
+                    },
+                    {
+                      "value": "audio"
+                    },
+                    {
+                      "value": "video"
+                    },
+                    {
+                      "value": "question"
+                    }
+                  ],
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:string"
+                },
+                {
+                  "count": null,
+                  "default": "0",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-ug-dashboard",
+                    "content": "Return posts that have appeared after this ID. Use this parameter to page through the results: first get a set of posts, and then get posts since the last ID of the previous set."
+                  },
+                  "name": "since_id",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:integer"
+                }
+              ],
+              "request": {
+                "params": [
+                  {
+                    "count": null,
+                    "default": "20",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-ug-dashboard",
+                      "content": "The number of results to return: 1\u201320, inclusive"
+                    },
+                    "name": "limit",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:positiveInteger"
+                  },
+                  {
+                    "count": null,
+                    "default": "0",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-ug-dashboard",
+                      "content": "Post number to start at."
+                    },
+                    "name": "offset",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:positiveInteger"
+                  },
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-ug-dashboard",
+                      "content": "The type of post to return."
+                    },
+                    "name": "type",
+                    "options": [
+                      {
+                        "value": "text"
+                      },
+                      {
+                        "value": "photo"
+                      },
+                      {
+                        "value": "quote"
+                      },
+                      {
+                        "value": "link"
+                      },
+                      {
+                        "value": "chat"
+                      },
+                      {
+                        "value": "audio"
+                      },
+                      {
+                        "value": "video"
+                      },
+                      {
+                        "value": "question"
+                      }
+                    ],
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:string"
+                  },
+                  {
+                    "count": null,
+                    "default": "0",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-ug-dashboard",
+                      "content": "Return posts that have appeared after this ID. Use this parameter to page through the results: first get a set of posts, and then get posts since the last ID of the previous set."
+                    },
+                    "name": "since_id",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:integer"
+                  }
+                ]
+              },
+              "responses": []
+            },
+            "path": "/user/dashboard"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "likes",
+              "apigee:example": {
+                "url": "/user/likes"
+              },
+              "apigee:tags": {
+                "primary": "User"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-ug-likes",
+                "content": "Use this method to retrieve the liked posts that match the OAuth credentials submitted with the request.",
+                "title": "/user/likes"
+              },
+              "id": "user-likes",
+              "name": "GET",
+              "params": [
+                {
+                  "count": null,
+                  "default": "20",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-ug-likes",
+                    "content": "The number of results to return: 1\u201320, inclusive"
+                  },
+                  "name": "limit",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:positiveInteger"
+                },
+                {
+                  "count": null,
+                  "default": "0",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-ug-likes",
+                    "content": "Liked post number to start at."
+                  },
+                  "name": "offset",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:positiveInteger"
+                }
+              ],
+              "request": {
+                "params": [
+                  {
+                    "count": null,
+                    "default": "20",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-ug-likes",
+                      "content": "The number of results to return: 1\u201320, inclusive"
+                    },
+                    "name": "limit",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:positiveInteger"
+                  },
+                  {
+                    "count": null,
+                    "default": "0",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-ug-likes",
+                      "content": "Liked post number to start at."
+                    },
+                    "name": "offset",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:positiveInteger"
+                  }
+                ]
+              },
+              "responses": []
+            },
+            "path": "/user/likes"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "following",
+              "apigee:example": {
+                "url": "/user/following"
+              },
+              "apigee:tags": {
+                "primary": "User"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-ug-following",
+                "content": "Use this method to retrieve the blogs followed by the user whose OAuth credentials are submitted with the request.",
+                "title": "/user/following"
+              },
+              "id": "user-following",
+              "name": "GET",
+              "params": [
+                {
+                  "count": null,
+                  "default": "20",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-ug-following",
+                    "content": "The number of results to return: 1\u201320, inclusive"
+                  },
+                  "name": "limit",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:positiveInteger"
+                },
+                {
+                  "count": null,
+                  "default": "0",
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-ug-following",
+                    "content": "Result number to start at."
+                  },
+                  "name": "offset",
+                  "required": false,
+                  "style": "query",
+                  "type": "xsd:positiveInteger"
+                }
+              ],
+              "request": {
+                "params": [
+                  {
+                    "count": null,
+                    "default": "20",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-ug-following",
+                      "content": "The number of results to return: 1\u201320, inclusive"
+                    },
+                    "name": "limit",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:positiveInteger"
+                  },
+                  {
+                    "count": null,
+                    "default": "0",
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-ug-following",
+                      "content": "Result number to start at."
+                    },
+                    "name": "offset",
+                    "required": false,
+                    "style": "query",
+                    "type": "xsd:positiveInteger"
+                  }
+                ]
+              },
+              "responses": []
+            },
+            "path": "/user/following"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "follow",
+              "apigee:example": {
+                "url": "/user/follow"
+              },
+              "apigee:tags": {
+                "primary": "User"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-up-follow",
+                "content": "Follow a blog.",
+                "title": "/user/follow"
+              },
+              "id": "user-follow",
+              "name": "POST",
+              "params": [
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-up-follow",
+                    "content": "The URL of the blog to follow."
+                  },
+                  "name": "url",
+                  "required": true,
+                  "style": "query",
+                  "type": "xsd:anyURI"
+                }
+              ],
+              "request": {
+                "params": [
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-up-follow",
+                      "content": "The URL of the blog to follow."
+                    },
+                    "name": "url",
+                    "required": true,
+                    "style": "query",
+                    "type": "xsd:anyURI"
+                  }
+                ]
+              },
+              "responses": []
+            },
+            "path": "/user/follow"
+          },
+          {
+            "method": {
+              "apigee:authentication": {
+                "required": "true"
+              },
+              "apigee:displayName": "unfollow",
+              "apigee:example": {
+                "url": "/user/unfollow"
+              },
+              "apigee:tags": {
+                "primary": "User"
+              },
+              "doc": {
+                "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-up-unfollow",
+                "content": "Unfollow a blog.",
+                "title": "/user/unfollow"
+              },
+              "id": "user-unfollow",
+              "name": "POST",
+              "params": [
+                {
+                  "count": null,
+                  "doc": {
+                    "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-up-unfollow",
+                    "content": "The URL of the blog to unfollow."
+                  },
+                  "name": "url",
+                  "required": true,
+                  "style": "query",
+                  "type": "xsd:anyURI"
+                }
+              ],
+              "request": {
+                "params": [
+                  {
+                    "count": null,
+                    "doc": {
+                      "apigee:url": "http://www.tumblr.com/docs/en/api/v2#m-up-unfollow",
+                      "content": "The URL of the blog to unfollow."
+                    },
+                    "name": "url",
+                    "required": true,
+                    "style": "query",
+                    "type": "xsd:anyURI"
+                  }
+                ]
+              },
+              "responses": []
+            },
+            "path": "/user/unfollow"
+          }
+        ]
+      }
+    ]
+  }
+}
